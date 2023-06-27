@@ -23,14 +23,14 @@ export default function GoalPostForm() {
   }
 
   //Handle Submit Function
-  function onSubmitGoalPost (evt) {
+  function onSubmitGoalPostForm (evt) {
     evt.preventDefault();
   }
 
   
   return (
     <div>
-      <form onSubmit={onSubmitGoalPost}>
+      <form onSubmit={onSubmitGoalPostForm}>
         {/* //Input for Title */}
         <label> Title</label>
         <input

@@ -33,7 +33,7 @@ export default function NavBarDropdown() {
         &nbsp;&nbsp;
 
         {/* //Add a New Profile Post */}
-        <Link to="/profile/new" onClick={handleLinkClick}>
+        <Link to="/profiles/new" onClick={handleLinkClick}>
           Add New Profile
         </Link>
 

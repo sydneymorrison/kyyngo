@@ -1,19 +1,32 @@
 const mongoose = require('mongoose');
 
 const milestoneSchema = new mongoose.Schema ({
-    title: {
+    goalId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Goal',
+        required: true
+      },
+      currentDate: {
+        type: Date
+      },
+      title: {
+        type: String,
+        ref: 'Goal',
+        required: true
+      },
+      milestoneDescription: {
         type: String,
         required: true
-    },
-    description: {
-        type: String,
-        required: true
-    },
-    dueDate: {
-        type:Date
-    }
-});
+      },
+      timeAllocation: {
+        type: String
+      },
+      isCompleted: {
+        type: Boolean,
+        default: false
+      },
 
+});
 
 const taskSchema = new mongoose.Schema({
     title: {
@@ -46,6 +59,10 @@ const goalSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true
+    },
+
+    currentDate: {
+        type: Date,
     },
 
     startDate: {

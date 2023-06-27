@@ -7,13 +7,16 @@ import AuthPage from '../AuthPage/AuthPage';
 // import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
 
-//Goal Import Components
+//Goal Components
 import GoalExplorePage from '../GoalExplorePage/GoalExplorePage';
 import GoalTrackPage from '../GoalTrackPage/GoalTrackPage';
 import GoalChatPage from '../GoalChatPage/GoalChatPage';
-import ProfilePage from '../ProfilePage/ProfilePage';
 import NavBarDropdown from '../../components/NavBarDropdown/NavBarDropdown';
 import GoalPostFormPage from '../GoalPostFormPage/GoalPostFormPage';
+
+//Profile Components
+import ProfilePage from '../ProfilePage/ProfilePage';
+import ProfileFormPage from '../ProfileFormPage/ProfileFormPage'
 
 
 export default function App() {
@@ -32,7 +35,7 @@ export default function App() {
               <Route path="/profile" element={<ProfilePage user={user} setUser={setUser} />} />
               <Route path="/goals/settings" element={<NavBarDropdown user={user} setUser={setUser} />} />
               <Route path="/goals/new" element={<GoalPostFormPage user={user} setUser={setUser} />} />
-              <Route path="/profiles/new" element={<ProfilePage user={user} setUser={setUser} />} />
+              <Route path="/profiles/new" element={<ProfileFormPage user={user} setUser={setUser} />} />
 
               {/* <Route path="/orders/new" element={<NewOrderPage />} />
               <Route path="/orders" element={<OrderHistoryPage />} /> */}
