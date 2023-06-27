@@ -1,0 +1,1 @@
+import GoalPostFormPage from './GoalPostFormPage.css';

@@ -1,0 +1,1 @@
+import GoalDetailCard from './GoalDetailCard.css'

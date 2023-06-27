@@ -1,0 +1,1 @@
+import ProfileFormPage from './ProfileFormPage.css';
