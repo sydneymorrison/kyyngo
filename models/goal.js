@@ -58,7 +58,7 @@ const goalSchema = new mongoose.Schema({
         required: true
     },
 
-    milestones: [milestoneSchema],
+    milestone: [milestoneSchema],
     tasks: [taskSchema],
     progress: {
         type: Number,
