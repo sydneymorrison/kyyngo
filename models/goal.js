@@ -104,6 +104,10 @@ const goalSchema = Schema({
         type: String
     },
 
+    link: {
+        type: String
+    },
+
     createdAt: {
         type: Date,
         default: Date.now
