@@ -107,15 +107,6 @@ const goalSchema = Schema({
     link: {
         type: String
     },
-    milestones: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Milestone'
-      }],
-      tasks: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Task'
-      }],
-
     createdAt: {
         type: Date,
         default: Date.now
