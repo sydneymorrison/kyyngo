@@ -28,13 +28,17 @@ export default function App() {
           <>
             <NavBar user={user} setUser={setUser} />
             <Routes>
-              {/* Route components in here */}
+              {/* Goals Routes */}
               <Route path="/" element={<GoalExplorePage user={user} setUser={setUser} />} />
-              <Route path="/goals/track" element={<GoalTrackPage user={user} setUser={setUser} />} />
               <Route path="/goals/chat" element={<GoalChatPage user={user} setUser={setUser} />} />
-              <Route path="/profile" element={<ProfilePage user={user} setUser={setUser} />} />
               <Route path="/goals/settings" element={<NavBarDropdown user={user} setUser={setUser} />} />
               <Route path="/goals/new" element={<GoalPostFormPage user={user} setUser={setUser} />} />
+
+              {/* Track Routes */}
+              <Route path="/goals/track" element={<GoalTrackPage user={user} setUser={setUser} />} />
+
+              {/* Profile Routes */}
+              <Route path="/profile" element={<ProfilePage user={user} setUser={setUser} />} />
               <Route path="/profiles/new" element={<ProfileFormPage user={user} setUser={setUser} />} />
 
               {/* <Route path="/orders/new" element={<NewOrderPage />} />

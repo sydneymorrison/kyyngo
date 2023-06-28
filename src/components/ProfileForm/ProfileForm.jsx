@@ -25,8 +25,8 @@ export default function ProfileForm() {
     
       
       return (
-        <div>
-          <form onSubmit={onSubmitProfileForm}>
+        <div className="profileFormContainer">
+          <form className="profileForm" onSubmit={onSubmitProfileForm}>
             {/* //Input for First Name */}
             <label> First Name</label>
             <input

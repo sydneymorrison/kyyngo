@@ -1,4 +1,7 @@
 import { useState } from 'react';
+// import iconDatabase from '../../database/iconDatabase';
+import emojiDatabase from '../../database/emojiDatabase';
+import goalsCategoryDatabase from '../../database/goalsCategoryDatabase';
 import './GoalPostForm.css';
 
 
@@ -25,12 +28,16 @@ export default function GoalPostForm() {
   //Handle Submit Function
   function onSubmitGoalPostForm (evt) {
     evt.preventDefault();
+
+    //Send a POST request to send a new Goal
+
+    //Calculate the progress of the Goal
   }
 
   
   return (
-    <div>
-      <form onSubmit={onSubmitGoalPostForm}>
+    <div className="goalPostFormContainer">
+      <form className="goalPostForm" onSubmit={onSubmitGoalPostForm}>
         {/* //Input for Title */}
         <label> Title</label>
         <input
@@ -47,13 +54,16 @@ export default function GoalPostForm() {
             onChange={handleChange}
           />
 
-          {/* //Input for icon */}
-          <label> Icon</label>
-          <input
-            name="icon"
-            value={goalFormData.icon}
-            onChange={handleChange}
-          />
+          {/* //Input for Icon */}
+          <label>Icon</label>
+          <select name="icon" value={goalFormData.icon} onChange={handleChange}>
+            <option value="">Select an icon</option>
+            {emojiDatabase.map((emoji) => (
+              <option key={emoji.icon} value={emoji.icon}>
+                {emoji.icon}
+              </option>
+            ))}
+          </select>
 
           {/* //Input for Start Date */}
           <label> Start Date</label>
@@ -72,12 +82,14 @@ export default function GoalPostForm() {
           />
 
           {/* //Input for Category */}
-          <label> Category</label>
-          <input
-            name="category"
-            value={goalFormData.category}
-            onChange={handleChange}
-          />
+          <label>Category</label>
+          <select name="category" value={goalFormData.category} onChange={handleChange}>
+            {goalsCategoryDatabase.map((category) => (
+              <option key={category.label} value={category.label}>
+                {category.label}
+              </option>
+            ))}
+          </select>
 
 
           {/* //Input for Link */}

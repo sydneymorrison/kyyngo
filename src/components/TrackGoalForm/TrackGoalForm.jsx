@@ -1,4 +1,5 @@
-import './TrackGoalFrom.css';
+import { useState } from 'react';
+import './TrackGoalForm.css';
 
 import React from 'react'
 
@@ -23,10 +24,11 @@ export default function TrackGoalForm() {
         evt.preventDefault();
       }
     
+      //Form Leverages Milestone Model
       
       return (
-        <div>
-          <form onSubmit={onSubmitTrackGoalPostForm}>
+        <div className="goalTrackFormContainer">
+          <form className="goalTrackForm" goalTrackFormContainer onSubmit={onSubmitTrackGoalPostForm}>
             {/* //Input for Title */}
             <label> Today's Date</label>
             <input
