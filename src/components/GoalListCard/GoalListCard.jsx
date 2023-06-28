@@ -13,7 +13,6 @@ export default function GoalListCard({ goalListItem }) {
     return null;
   }
 
-
   return (
     <div className="goalListCardContainer">
       <div>
