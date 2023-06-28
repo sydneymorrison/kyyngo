@@ -7,6 +7,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 //All paths start with /api/goals
 
 //POST /api/goals (create a new goal)
-router.post('/', goalsCtrl.createGoal);
+router.post('/new', goalsCtrl.create);
 
 module.exports = router;

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const milestoneSchema = new mongoose.Schema ({
+const milestoneSchema = new Schema ({
     goalId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Goal',
@@ -26,9 +27,11 @@ const milestoneSchema = new mongoose.Schema ({
         default: false
       },
 
-});
+}, {
+    timestamps: true,
+  });
 
-const taskSchema = new mongoose.Schema({
+const taskSchema = new Schema({
     title: {
         type: String,
         required: true
@@ -41,10 +44,12 @@ const taskSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     }
-});
+}, {
+    timestamps: true,
+  });
 
 
-const goalSchema = new mongoose.Schema({
+const goalSchema = Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
@@ -108,12 +113,19 @@ const goalSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
+}, {
+        timestamps: true,
 });
 
 const Goal = mongoose.model('Goal', goalSchema);
+const Milestone = mongoose.model('Milestone', milestoneSchema);
+const Task = mongoose.model('Task', taskSchema);
 
-
-module.exports = Goal;
+module.exports = {
+  Goal,
+  Milestone,
+  Task
+};
 
 
 

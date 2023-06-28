@@ -2,6 +2,7 @@ import { useState } from 'react';
 // import iconDatabase from '../../database/iconDatabase';
 import emojiDatabase from '../../database/emojiDatabase';
 import goalsCategoryDatabase from '../../database/goalsCategoryDatabase';
+import { createGoal } from '../../utilities/goals-api';
 import './GoalPostForm.css';
 
 
@@ -25,13 +26,47 @@ export default function GoalPostForm() {
     setGoalFormData(newGoalFormData);
   }
 
+
   //Handle Submit Function
-  function onSubmitGoalPostForm (evt) {
+  async function onSubmitGoalPostForm (evt) {
     evt.preventDefault();
 
-    //Send a POST request to send a new Goal
+  try {
+    //Send a POST request to create a new Goal
+    const newGoal = await createGoal({ 
+      title: goalFormData.title,
+      description: goalFormData.description,
+      icon: goalFormData.icon,
+      startDate: goalFormData.startDate,
+      endDate: goalFormData.endDate,
+      category: goalFormData.category,
+      link: goalFormData.link, 
+    });
 
-    //Calculate the progress of the Goal
+    //Clear the form data
+    setGoalFormData({
+      title: "",
+      description: "",
+      icon: "",
+      startDate: "",
+      endDate: "",
+      category: "",
+      link: ""
+    });
+
+    // Handle the successful response
+    console.log("New goal created:", newGoal);
+
+  } catch (error) {
+    // Handle the error
+    console.error("Failed to create goal:", error.message);
+
+  }
+
+    // Send goalFormData to the backend to calculate progress
+    // Update the goal progress value in the backend/database
+    // Redirect to the appropriate page or update the UI as needed
+
   }
 
   

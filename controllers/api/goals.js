@@ -1,36 +1,36 @@
-const Goal = require('../../models/goal');
+const { Goal, Milestone, Task } = require('../../models/goal');
 
 module.exports = {
-    createGoal,
+    create,
   };
 
 
 
 //Create Functionality
 
-async function createGoal(req, res) {
+async function create(req, res) {
     try {
 
         // Field from GoalPostForm are extracted from request.body in HTML request
-        const { title, description, icon, startDate, endDate, category, link  } = req.body;
+        const { title, description, icon, startDate, endDate, category, link } = req.body;
 
         // create a new note in the database
-        const newGoal = await Goal.createGoal({ 
-            user: req.user._id,
-            title: title,
-            description: description,
-            icon: icon,
-            startDate: startDate,
-            endDate: endDate,
-            category: category,
-            link: link,
-            progress: 0,
+        const newGoal = await Goal.create({ 
+            userId: req.user._id,
+            title: 'My Goal',
+            description: 'This is my goal',
+            startDate: new Date(),
+            endDate: new Date('2023-12-31'),
+            category: 'Personal', 
+            link: 'link'
+        
         });
+        console.log(newGoal);
 
         res.status(201).json(newGoal);
 
     } catch (error) {
-        res.status(500).json({error: 'Failed to create goal'});
+        res.status(500).json({ error: 'Failed to create goal', errorMessage: error.message });
     }
 }
 

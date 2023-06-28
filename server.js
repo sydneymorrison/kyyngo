@@ -23,10 +23,14 @@ app.use(require('./config/checkToken'));
 
 const port = process.env.PORT || 3001;
 
+//Cors middleware
+const cors = require('cors');
+app.use(cors());
+
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
-// app.use('/api/goals', require('./routes/api/goals'));
-// app.use('/api/profiles', require('./routes/api/profiles'));
+app.use('/api/goals', require('./routes/api/goals'));
+
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests
