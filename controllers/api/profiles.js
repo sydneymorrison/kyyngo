@@ -1,4 +1,9 @@
-const { Profile } = require('../../models/profile');
+const Profile = require('../../models/profile');
+
+
+module.exports = {
+    create,
+  };
 
 
 
@@ -11,27 +16,18 @@ async function create(req, res) {
         const { firstName, lastName, username, profilePicture, bio } = req.body;
 
         // create a new note in the database
-        const newGoal = await Profile.create({ 
+        const newProfile = await Profile.create({ 
             userId: req.user._id,
             goalId: req.user._id,
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             username: req.body.username,
-            
-
-
-
-            title: req.body.title,
-            description: req.body.description,
-            icon: req.body.icon,
-            startDate: req.body.startDate,
-            endDate: req.body.endDate,
-            category: req.body.category,
-            link: req.body.link
+            profilePicture: req.body.profilePicture,
+            bio: req.body.bio,
         });
-        console.log(newGoal);
+        console.log(newProfile);
 
-        res.status(201).json(newGoal);
+        res.status(201).json(newProfile);
 
     } catch (error) {
         res.status(500).json({ error: 'Failed to create goal', errorMessage: error.message });
