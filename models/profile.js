@@ -53,6 +53,20 @@ const profileSchema = new mongoose.Schema({
     }
 });
 
+
+//Add Virtual to Profile Model
+profileSchema.virtual('goals', {
+    ref: 'Goal',
+    localField: 'goalId',
+    foreignField: '_id'
+});
+
+profileSchema.set('toObject', { virtuals: true} );
+profileSchema.set('toJSON', { virtuals: true} );
+
+
+
+
 const Profile = mongoose.model('Profile', profileSchema);
 
 module.exports = Profile;

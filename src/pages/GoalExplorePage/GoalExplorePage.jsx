@@ -15,10 +15,10 @@ export default function GoalExplorePage() {
   useEffect(() => {
     async function fetchGoalList() {
     try {
-      const goals = await getGoalList();
-      setGoalListItems(goals);
+      const goalsList = await getGoalList();
+      setGoalListItems(goalsList);
     } catch (error) {
-      console.log('Failed to retrieve notes:', error);
+      console.log('Failed to retrieve goal items:', error);
     }
   }
     fetchGoalList();
