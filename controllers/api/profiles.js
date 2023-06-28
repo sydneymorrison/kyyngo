@@ -2,8 +2,22 @@ const Profile = require('../../models/profile');
 
 
 module.exports = {
+    index,
     create,
   };
+
+
+//Index Functionality 
+
+async function index(req, res) {
+    try {
+        const goals = await Profile.find().populate('goalId').exec();
+        res.status(200).json(goals);
+    } catch (error) {
+        res.status(500).json({error: 'Failed to retrieve profile'});
+    }
+
+}
 
 
 
@@ -18,7 +32,7 @@ async function create(req, res) {
         // create a new note in the database
         const newProfile = await Profile.create({ 
             userId: req.user._id,
-            goalId: req.user._id,
+            goalId: req.body.goalId,
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             username: req.body.username,

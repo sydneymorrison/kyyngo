@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import'./GoalExplorePage.css';
 import GoalList from '../../components/GoalList/GoalList';
-
 //API Routes
 import { getGoalList } from '../../utilities/goals-api';
+
 
 
 export default function GoalExplorePage() {

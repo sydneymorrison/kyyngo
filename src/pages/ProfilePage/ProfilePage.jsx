@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import GoalList from '../../components/GoalList/GoalList'
+import ProfileList from '../../components/ProfileList/ProfileList';
 import './ProfilePage.css';
+//API Routes
+import { getProfileList } from '../../utilities/profiles-api';
+
+
 
 export default function ProfilePage() {
 
@@ -13,7 +17,7 @@ export default function ProfilePage() {
       const profileList = await getProfileList();
       setProfileListItems(profileList);
     } catch (error) {
-      console.log('Failed to retrieve profile items:', error);
+      console.log('Failed to retrieve profile list items:', error);
     }
   }
     fetchProfileList();
@@ -23,7 +27,7 @@ export default function ProfilePage() {
   return (
     <div>
     <div>ProfilePage</div>
-    <ProfileList profileListItems={profileListItems} />
+    <ProfileList profileListItems={profileListItems.map((profileListItem) => profileListItem.goal)} />
     </div>
   )
 }

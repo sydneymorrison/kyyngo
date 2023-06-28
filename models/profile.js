@@ -6,10 +6,10 @@ const profileSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
-    goalId: {
+    goals: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Goal'
-      },
+      }],
     firstName: {
         type: String,
         required: true
@@ -57,7 +57,7 @@ const profileSchema = new mongoose.Schema({
 //Add Virtual for 'Goal' Model to Profile Model
 profileSchema.virtual('profileGoals', {
     ref: 'Goal',
-    localField: 'goalId',
+    localField: 'goals',
     foreignField: '_id'
 });
 
