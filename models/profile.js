@@ -6,7 +6,10 @@ const profileSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
-
+    goalId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Goal'
+      },
     firstName: {
         type: String,
         required: true
