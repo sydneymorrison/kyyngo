@@ -3,9 +3,12 @@ const Profile = require('../../models/profile');
 
 module.exports = {
     index,
-    create,
+    createGoal,
+    createMilestone
   };
 
+
+//GOALS
 
 //Index Functionality 
 
@@ -21,7 +24,7 @@ async function index(req, res) {
 
 //Create Functionality
 
-async function create(req, res) {
+async function createGoal(req, res) {
     try {
 
         // Field from GoalPostForm are extracted from request.body in HTML request
@@ -54,4 +57,39 @@ async function create(req, res) {
         res.status(500).json({ error: 'Failed to create goal', errorMessage: error.message });
     }
 }
+
+
+//TRACK GOALS THROUGH MILESTONE SCHEMA
+async function createMilestone(req, res) {
+    try {
+
+        // Field from GoalPostForm are extracted from request.body in HTML request
+        const { userId, goals, currentDate, title, milestoneDescription, timeAllocation, isCompleted } = req.body;
+
+        // create a new note in the database
+        const newMilestone = await Milestone.create({ 
+            userId: req.user._id,
+            goals: req.body.goals,
+            currentDate: req.body.currentDate,
+            title: req.body.title,
+            milestoneDescription: req.body.milestoneDescription,
+            timeAllocation: req.body.timeAllocation,
+            isCompleted: req.body.isCompleted,
+        });
+        console.log(newMilestone);
+
+        const profile = await Profile.findOneAndUpdate(
+            {userId: req.user._id},
+            {$push: {milestones: newMilestone._id},},
+            { new: true}
+        );
+
+
+        res.status(201).json(newMilestone);
+
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to create milestone', errorMessage: error.message });
+    }
+}
+
 

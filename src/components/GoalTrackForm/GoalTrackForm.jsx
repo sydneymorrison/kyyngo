@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import './TrackGoalForm.css';
-
+import { createGoalTrackForm } from '../../utilities/goals-api';
+import './GoalTrackForm.css';
 import React from 'react'
 
 export default function TrackGoalForm() {
@@ -8,7 +8,7 @@ export default function TrackGoalForm() {
         currentDate: "",
         title: "",
         milestoneDescription: "",
-        timeAllocation: "",
+        timeAllocation: { hours: 0, minutes: 0 },
         isCompleted: "",
       });
     
@@ -20,8 +20,38 @@ export default function TrackGoalForm() {
       }
     
       //Handle Submit Function
-      function onSubmitTrackGoalPostForm (evt) {
+    async function onSubmitTrackGoalPostForm(evt) {
         evt.preventDefault();
+
+        try {
+          //Send a POST request to create a new Milestone from the Milestone Schema
+          const newMilestone = await createGoalTrackForm({ 
+            currentDate: trackGoalFormData.currentDate,
+            title: trackGoalFormData.title,
+            milestoneDescription: trackGoalFormData.milestoneDescription,
+            timeAllocation: trackGoalFormData.timeAllocation,
+            isCompleted: trackGoalFormData.isCompleted,
+ 
+          });
+      
+          //Clear the form data
+          setTrackGoalFormData({
+            currentDate: "",
+            title: "",
+            milestoneDescription: "",
+            timeAllocation: "",
+            isCompleted: "",
+          });
+      
+          // Handle the successful response
+          console.log("New milestone goal created:", newMilestone);
+      
+        } catch (error) {
+          // Handle the error
+          console.error("Failed to create new milestone:", error.message);
+      
+        }
+
       }
     
       //Form Leverages Milestone Model
@@ -63,11 +93,14 @@ export default function TrackGoalForm() {
     
               {/* //Input for Completion */}
               <label>Completion Status</label>
-              <input
+              <select
                 name="isCompleted"
                 value={trackGoalFormData.isCompleted}
                 onChange={handleChange}
-              />
+              >
+                <option value="Not Completed">Not Completed</option>
+                <option value="Completed">Completed</option>
+              </select>
     
               {/* //Submit Button */}
               <button type="submit">Submit</button>

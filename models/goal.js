@@ -2,11 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const milestoneSchema = new Schema ({
-    goalId: {
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    goals: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Goal',
         required: true
-      },
+      }],
       currentDate: {
         type: Date
       },
@@ -20,12 +25,24 @@ const milestoneSchema = new Schema ({
         required: true
       },
       timeAllocation: {
-        type: String
+        hours: {
+          type: Number,
+          default: 0
+        },
+        minutes: {
+          type: Number,
+          default: 0
+        },
+        seconds: {
+          type: Number,
+          default: 0
+        }
       },
       isCompleted: {
-        type: Boolean,
-        default: false
-      },
+        type: String,
+        enum: ['Completed', 'Not Completed'],
+        default: 'Not Completed'
+      }
 
 }, {
     timestamps: true,
