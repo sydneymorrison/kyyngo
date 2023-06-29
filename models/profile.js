@@ -72,8 +72,8 @@ profileSchema.virtual('profileUser', {
 
 
 
-profileSchema.set('toObject', { virtuals: true} );
-profileSchema.set('toJSON', { virtuals: true} );
+profileSchema.set('toObject', { virtuals: true } );
+profileSchema.set('toJSON', { virtuals: true } );
 
 
 

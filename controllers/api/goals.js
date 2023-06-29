@@ -1,4 +1,5 @@
 const { Goal, Milestone, Task } = require('../../models/goal');
+const Profile = require('../../models/profile');
 
 module.exports = {
     index,
@@ -38,6 +39,14 @@ async function create(req, res) {
             link: req.body.link
         });
         console.log(newGoal);
+
+        const profile = await Profile.findOneAndUpdate(
+            {userId: req.user._id},
+            {$push: {goals: newGoal._id},},
+            { new: true}
+        );
+
+
 
         res.status(201).json(newGoal);
 

@@ -16,6 +16,9 @@ export default function ProfilePage() {
     try {
       const profileList = await getProfileList();
       setProfileListItems(profileList);
+
+      console.log('profileList', profileList);
+
     } catch (error) {
       console.log('Failed to retrieve profile list items:', error);
     }
@@ -26,8 +29,8 @@ export default function ProfilePage() {
 
   return (
     <div>
-    <div>ProfilePage</div>
-    <ProfileList profileListItems={profileListItems.map((profileListItem) => profileListItem.goal)} />
+      <div>ProfilePage</div>
+      <ProfileList profileListItems={profileListItems} />
     </div>
-  )
+  );
 }

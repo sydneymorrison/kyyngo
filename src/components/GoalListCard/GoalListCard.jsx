@@ -9,10 +9,6 @@ export default function GoalListCard({ goalListItem }) {
   const year = createdAt.getFullYear();
   const formattedDate = month + ' ' + date + ', ' + year;
 
-  if (!goalListItem) {
-    return null;
-  }
-
   return (
     <div className="goalListCardContainer">
       <div>

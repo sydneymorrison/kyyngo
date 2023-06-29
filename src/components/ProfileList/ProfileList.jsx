@@ -1,12 +1,13 @@
 import React from 'react';
 import './ProfileList.css';
-import GoalListCard from '../GoalListCard/GoalListCard';
+// import GoalList from '../../components/GoalList/GoalList'
+import ProfileListCard from '../../components/ProfileListCard/ProfileListCard'
 
 export default function ProfileList( { profileListItems }) {
   return (
     <div className="profileListContainer">
         {profileListItems.map((profileListItem) => (
-            <GoalListCard key={profileListItem.goalId._id} goalListItem={profileListItem} />
+            <ProfileListCard key={profileListItem._id} profileListItem={profileListItem} />
         ))}
     </div>
   );

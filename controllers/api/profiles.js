@@ -11,14 +11,13 @@ module.exports = {
 
 async function index(req, res) {
     try {
-        const goals = await Profile.find().populate('goalId').exec();
-        res.status(200).json(goals);
+        const profiles = await Profile.find().populate('goals').exec();
+        res.status(200).json(profiles);
     } catch (error) {
         res.status(500).json({error: 'Failed to retrieve profile'});
     }
 
 }
-
 
 
 //Create Functionality
