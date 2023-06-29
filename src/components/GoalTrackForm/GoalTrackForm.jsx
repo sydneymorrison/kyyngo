@@ -11,14 +11,32 @@ export default function TrackGoalForm() {
         timeAllocation: { hours: 0, minutes: 0 },
         isCompleted: "",
       });
-    
-      //Handle Change Function
-    
-      function handleChange(evt) {
-        const newTrackGoalFormData = { ...trackGoalFormData, [evt.target.name]: evt.target.value };
-        setTrackGoalFormData(newTrackGoalFormData);
+
+
+    //Handle Change parse to numbers
+    function handleChange(evt) {
+      const {name, value} = evt.target;
+
+      if (name === "timeAllocation.hours" || name === "timeAllocation.minutes" ) {
+        const field = name.split(".")[1];
+
+        setTrackGoalFormData(function(prevState) {
+          return {
+            ...prevState,
+            timeAllocation: {
+              ...prevState.timeAllocation,
+              [field]: parseInt(value, 10) || 0,
+              },
+           };
+        });
+      } else {
+        setTrackGoalFormData((prevState) => ({
+          ...prevState,
+          [name]: value,
+        }));
       }
-    
+    }  
+
       //Handle Submit Function
     async function onSubmitTrackGoalPostForm(evt) {
         evt.preventDefault();
@@ -26,7 +44,7 @@ export default function TrackGoalForm() {
         try {
           //Send a POST request to create a new Milestone from the Milestone Schema
           const newMilestone = await createGoalTrackForm({ 
-            currentDate: trackGoalFormData.currentDate,
+            currentDate: new Date(),
             title: trackGoalFormData.title,
             milestoneDescription: trackGoalFormData.milestoneDescription,
             timeAllocation: trackGoalFormData.timeAllocation,
@@ -39,8 +57,8 @@ export default function TrackGoalForm() {
             currentDate: "",
             title: "",
             milestoneDescription: "",
-            timeAllocation: "",
-            isCompleted: "",
+            timeAllocation: { hours: 0, minutes: 0 },
+            isCompleted: "Not Completed",
           });
       
           // Handle the successful response
@@ -53,12 +71,13 @@ export default function TrackGoalForm() {
         }
 
       }
+
     
       //Form Leverages Milestone Model
       
       return (
         <div className="goalTrackFormContainer">
-          <form className="goalTrackForm" goalTrackFormContainer onSubmit={onSubmitTrackGoalPostForm}>
+          <form className="goalTrackForm" onSubmit={onSubmitTrackGoalPostForm}>
             {/* //Input for Title */}
             <label> Today's Date</label>
             <input
@@ -83,12 +102,26 @@ export default function TrackGoalForm() {
                 onChange={handleChange}
               />
     
-              {/* //Input for Time Allocation */}
-              <label>Time Allocation</label>
+              {/* //Input for Time Allocation - Hours */}
+              <label>Hours</label>
               <input
-                name="timeAllocation"
-                value={trackGoalFormData.timeAllocation}
+                type="number"
+                name="timeAllocation.hours"
+                value={trackGoalFormData.timeAllocation.hours}
                 onChange={handleChange}
+                inputMode="numeric"
+                min="0" 
+              />
+
+              {/* //Input for Time Allocation - Hours */}
+              <label>Minutes</label>
+              <input
+                type="number"
+                name="timeAllocation.minutes"
+                value={trackGoalFormData.timeAllocation.minutes}
+                onChange={handleChange}
+                inputMode="numeric"
+                min="0" 
               />
     
               {/* //Input for Completion */}

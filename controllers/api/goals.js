@@ -65,6 +65,7 @@ async function createMilestone(req, res) {
 
         // Field from GoalPostForm are extracted from request.body in HTML request
         const { userId, goals, currentDate, title, milestoneDescription, timeAllocation, isCompleted } = req.body;
+        const { hours, minutes } = req.body.timeAllocation;
 
         // create a new note in the database
         const newMilestone = await Milestone.create({ 
@@ -73,7 +74,7 @@ async function createMilestone(req, res) {
             currentDate: req.body.currentDate,
             title: req.body.title,
             milestoneDescription: req.body.milestoneDescription,
-            timeAllocation: req.body.timeAllocation,
+            timeAllocation: { hours, minutes },
             isCompleted: req.body.isCompleted,
         });
         console.log(newMilestone);

@@ -16,6 +16,8 @@ export async function createGoal(formData) {
 
 
 //TRACK
-export async function createGoalTrackForm(formData) {
-  return sendRequest(`${BASE_URL}/track`, 'POST', formData);
+
+//Create a milestone
+export async function createGoalTrackForm(trackFormData) {
+  return sendRequest(`${BASE_URL}/track`, 'POST', trackFormData);
 }

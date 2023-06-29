@@ -42,7 +42,13 @@ const milestoneSchema = new Schema ({
         type: String,
         enum: ['Completed', 'Not Completed'],
         default: 'Not Completed'
+      },
+      goalProgress: {
+        type: Number,
+        ref: 'Goal',
+        required: true
       }
+
 
 }, {
     timestamps: true,
