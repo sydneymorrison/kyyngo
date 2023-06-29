@@ -7,7 +7,7 @@ const milestoneSchema = new Schema ({
         ref: 'User',
         required: true
     },
-    goals: [{
+    goalId: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Goal',
         required: true
@@ -43,12 +43,11 @@ const milestoneSchema = new Schema ({
         enum: ['Completed', 'Not Completed'],
         default: 'Not Completed'
       },
-      goalProgress: {
+      progress: {
         type: Number,
         ref: 'Goal',
         required: true
       }
-
 
 }, {
     timestamps: true,
@@ -152,6 +151,8 @@ module.exports = {
   Milestone,
   Task
 };
+
+
 
 
 

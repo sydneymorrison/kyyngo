@@ -16,10 +16,6 @@ router.get('/', goalsCtrl.index);
 router.post('/new', goalsCtrl.createGoal);
 
 
-//TRACK GOALS BY CREATING MILESTONE
-
-//POST /api/goals/track (create a new milestone goal)
-router.post('/track', goalsCtrl.createMilestone);
 
 
 module.exports = router;

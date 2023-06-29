@@ -1,16 +1,32 @@
-import { useState } from 'react';
-import { createGoalTrackForm } from '../../utilities/goals-api';
+import React, { useState, useEffect } from 'react';
+import { createGoalTrackForm } from '../../utilities/milestones-api';
+import { getTrackGoalList } from '../../utilities/milestones-api';
 import './GoalTrackForm.css';
-import React from 'react'
+
 
 export default function TrackGoalForm() {
     const [trackGoalFormData, setTrackGoalFormData] = useState({
         currentDate: "",
-        title: "",
+        goalId: "",
         milestoneDescription: "",
         timeAllocation: { hours: 0, minutes: 0 },
         isCompleted: "",
       });
+    
+    //Fetch Goals
+    const [goals, setGoals] = useState([]);
+    
+    useEffect(() => {
+      async function fetchGoals() {
+        try{
+          const goalTrackList = await getTrackGoalList();
+          setGoals(goalTrackList);
+        } catch (error) {
+          console.error("Failed to fetch goals:", error.message);
+        }
+      }  
+      fetchGoals();
+    }, []);
 
 
     //Handle Change parse to numbers
@@ -45,7 +61,7 @@ export default function TrackGoalForm() {
           //Send a POST request to create a new Milestone from the Milestone Schema
           const newMilestone = await createGoalTrackForm({ 
             currentDate: new Date(),
-            title: trackGoalFormData.title,
+            goalId: trackGoalFormData.goalId,
             milestoneDescription: trackGoalFormData.milestoneDescription,
             timeAllocation: trackGoalFormData.timeAllocation,
             isCompleted: trackGoalFormData.isCompleted,
@@ -55,7 +71,7 @@ export default function TrackGoalForm() {
           //Clear the form data
           setTrackGoalFormData({
             currentDate: "",
-            title: "",
+            goalId: "",
             milestoneDescription: "",
             timeAllocation: { hours: 0, minutes: 0 },
             isCompleted: "Not Completed",
@@ -86,13 +102,20 @@ export default function TrackGoalForm() {
               onChange={handleChange}
             />
     
-              {/* //Input for Description */}
-              <label>Title</label>
-              <input
-                name="title"
-                value={trackGoalFormData.title}
+              {/* //Select for Goal */}
+              <label>Goal</label>
+              <select 
+                name="goalId"
+                value={trackGoalFormData.goalId}
                 onChange={handleChange}
-              />
+              >
+                <option value="">Select a goal</option>
+                {goals.map((goal) => (
+                  <option key={goal._id} value={goal._id}>
+                    {goal.title}
+                  </option>
+                ))}
+              </select>
     
               {/* //Input for Milestone Description */}
               <label>Milestone Description</label>
