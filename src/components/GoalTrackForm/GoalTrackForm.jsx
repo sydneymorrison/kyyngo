@@ -96,22 +96,20 @@ export default function TrackGoalForm( { goalTrackListItems } ) {
             {/* Input for Goal */}
             <label>Goal</label>
             <select
-                name="goalId"
-                value={trackGoalFormData.goalId}
-                onChange={handleChange}
-              >
-                <option value="" className="goalTrackFormOption">
-                  Select a goal
-                </option>
-                {goalTrackListItems &&
-                  goalTrackListItems.length > 0 &&
-                  goalTrackListItems.map((goalTrackItem) => {
-                    return goalTrackItem.goalId.map((goal) => (
-                      <option key={goal._id} value={goal._id}>
-                        {goal.title}
-                      </option>
-                    ));
-                  })}
+              name="goalId"
+              value={trackGoalFormData.goalId}
+              onChange={handleChange}
+            >
+              <option value="" className="goalTrackFormOption">
+                Select a goal
+              </option>
+              {goalTrackListItems &&
+                goalTrackListItems.length > 0 &&
+                goalTrackListItems[0].goalId.map((goal) => (
+                  <option key={goal._id} value={goal._id}>
+                    {goal.title}
+                  </option>
+                ))}
             </select>
       
     
