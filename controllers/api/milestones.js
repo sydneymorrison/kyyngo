@@ -17,7 +17,7 @@ async function getTrackGoalList(req, res) {
         const goals = await Milestone.find().populate('goalId').exec();
         res.status(200).json(goals);
 
-        console.log('milestone_goals', goals);
+        console.log('milestone_goals:', goals);
     } catch (error) {
         res.status(500).json({
             error: 'Failed to retrieve goals for track form'});
@@ -36,10 +36,17 @@ async function createGoalTrackForm(req, res) {
               progress
             } = req.body;
 
+        
+            //Retrieve all of the goals from the database
+            const goals = await Goal.find();
 
+            //Get the Goal Ids
+            const goalIds = goals.map((goal) => goal._id);
+
+        console.log('goalIds:', goalIds);
         const newMilestone = await Milestone.create ({
             userId: req.user._id,
-            goalId: ['649c78f730ee66e1f2d75b32', '649cc95d9909ed40b6fca872'],
+            goalId: goalIds,
             currentDate,
             milestoneDescription,
             timeAllocation,

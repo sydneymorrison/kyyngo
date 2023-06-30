@@ -4,10 +4,10 @@ import './GoalTrackList.css';
 import GoalTrackForm from '../../components/GoalTrackForm/GoalTrackForm'
 
 
-export default function GoalTrackList( { goalTrackListItems } ) {
+export default function GoalTrackList( { goals }  ) {
     return (
     <div className="goalTrackListContainer">
-        <GoalTrackForm goalTrackListItems={goalTrackListItems} />
+        <GoalTrackForm goalTrackListItems={goals} />
       </div>
 );
 }

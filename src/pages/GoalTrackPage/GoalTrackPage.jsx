@@ -32,7 +32,7 @@ export default function TrackGoalPage() {
   return (
     <div>
     <div>GoalTrackPage</div>
-    <GoalTrackList goalTrackListItems={goalTrackListItems} />
+    <GoalTrackList goals={goalTrackListItems} />
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { createGoalTrackForm } from '../../utilities/milestones-api';
 import './GoalTrackForm.css';
 
 
-export default function TrackGoalForm( {goalTrackListItems} ) {
+export default function TrackGoalForm( { goalTrackListItems } ) {
     const [trackGoalFormData, setTrackGoalFormData] = useState({
         currentDate: "",
         milestoneDescription: "",
@@ -96,18 +96,23 @@ export default function TrackGoalForm( {goalTrackListItems} ) {
             {/* Input for Goal */}
             <label>Goal</label>
             <select
-              name="goalId"
-              value={trackGoalFormData.goalId}
-              onChange={handleChange}
-            >
-              <option value="">Select a goal</option>
-              {goalTrackListItems.map((goal) => (
-                <option key={goal._id} value={goal._id}>
-                  {goal.title}
+                name="goalId"
+                value={trackGoalFormData.goalId}
+                onChange={handleChange}
+              >
+                <option value="" className="goalTrackFormOption">
+                  Select a goal
                 </option>
-              ))}
-              </select>
-    
+                {goalTrackListItems &&
+                  goalTrackListItems.length > 0 &&
+                  goalTrackListItems.map((goalTrackItem) => {
+                    return goalTrackItem.goalId.map((goal) => (
+                      <option key={goal._id} value={goal._id}>
+                        {goal.title}
+                      </option>
+                    ));
+                  })}
+            </select>
       
     
               {/* //Input for Milestone Description */}
