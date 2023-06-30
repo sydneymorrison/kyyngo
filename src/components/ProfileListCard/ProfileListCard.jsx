@@ -3,7 +3,6 @@ import './ProfileListCard';
 
 
 
-
 export default function ProfileListCard( { profileListItem } ) {
     const createdAt = new Date(profileListItem.createdAt);
     const date = createdAt.getDate();

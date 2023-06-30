@@ -1,7 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+// import { Route, useNavigate } from 'react-router-dom';
 import './GoalListCard.css';
+// import GoalPostFormUpdate from '../GoalPostFormUpdate/GoalPostFormUpdate';
 
-export default function GoalListCard({ goalListItem }) {
+export default function GoalListCard({ goalListItem, handleUpdate, handleDelete }) {
+
+  const navigate = useNavigate();
 
   const createdAt = new Date(goalListItem.createdAt);
   const date = createdAt.getDate();
@@ -9,9 +14,18 @@ export default function GoalListCard({ goalListItem }) {
   const year = createdAt.getFullYear();
   const formattedDate = month + ' ' + date + ', ' + year;
 
-  if (!goalListItem) {
-    return null;
+  
+
+  function handleUpdateClick (evt) {
+    handleUpdate(goalListItem._id);
+    // navigate(`/api/goals/${goalListItem._id}`);
+    navigate(`/goals/${goalListItem._id}/edit`);
   }
+
+ function handleDeleteClick (evt) {
+  handleDelete(goalListItem._id);
+ }
+
 
   return (
     <div className="goalListCardContainer">
@@ -32,6 +46,19 @@ export default function GoalListCard({ goalListItem }) {
           {/* Star icon */}
           {/* Progress Bar */}
       </div>
+      <div>
+            {/* {Edit a Goal} */}
+            {/* <Route path="`/goals/${goalId}/edit`" element={<ProfilePage user={user} setUser={setUser} />} /> */}
+            <button onClick={handleUpdateClick}>Edit</button>
+            {/* Delete a Goal} */}
+            <button onClick={handleDeleteClick}>Delete</button>
+      </div>
+
+      {/* {Add the route for the Goal Post Form Update } */}
+      {/* <Route
+      path="/goals/:id/edit"
+      element={<GoalPostFormUpdate />}
+      /> */}
     </div>
-  )
+  );
 }

@@ -13,6 +13,7 @@ import GoalTrackPage from '../GoalTrackPage/GoalTrackPage';
 import GoalChatPage from '../GoalChatPage/GoalChatPage';
 import NavBarDropdown from '../../components/NavBarDropdown/NavBarDropdown';
 import GoalPostFormPage from '../GoalPostFormPage/GoalPostFormPage';
+import GoalPostFormUpdate from '../../components/GoalPostFormUpdate/GoalPostFormUpdate';
 
 //Profile Components
 import ProfilePage from '../ProfilePage/ProfilePage';
@@ -33,6 +34,7 @@ export default function App() {
               <Route path="/goals/chat" element={<GoalChatPage user={user} setUser={setUser} />} />
               <Route path="/goals/settings" element={<NavBarDropdown user={user} setUser={setUser} />} />
               <Route path="/goals/new" element={<GoalPostFormPage user={user} setUser={setUser} />} />
+              <Route path="/goals/:id/edit" element={<GoalPostFormUpdate user={user} setUser={setUser} />} />
 
               {/* Track Routes */}
               <Route path="/milestones/new" element={<GoalTrackPage user={user} setUser={setUser} />} />

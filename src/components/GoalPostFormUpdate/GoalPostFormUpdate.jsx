@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 // import iconDatabase from '../../database/iconDatabase';
 import emojiDatabase from '../../database/emojiDatabase';
 import goalsCategoryDatabase from '../../database/goalsCategoryDatabase';
-import { createGoal, updateGoal } from '../../utilities/goals-api';
-import './GoalPostForm.css';
+import { updateGoalForm } from '../../utilities/goals-api';
+import './GoalPostFormUpdate.css';
 
 
 
-export default function GoalPostForm( {goal} ) {
+export default function GoalPostFormUpdate( {goal} ) {
 
   const [goalFormData, setGoalFormData] = useState({
     title: "",
@@ -26,13 +26,13 @@ export default function GoalPostForm( {goal} ) {
       //Populate the form data with the existing goal
 
       setGoalFormData({
-        title: goal.title,
-        description: goal.description,
-        icon: goal.icon,
-        startDate: goal.startDate,
-        endDate: goal.endDate,
-        category: goal.category,
-        link: goal.link,
+        title: goal.title || '',
+        description: goal.description || '',
+        icon: goal.icon || '',
+        startDate: goal.startDate || '',
+        endDate: goal.endDate || '',
+        category: goal.category || '',
+        link: goal.link || '', 
       });
     }
   }, [goal]);
@@ -53,24 +53,11 @@ export default function GoalPostForm( {goal} ) {
 
     //UPDATE Functionality
     if (goal) {
-      await updateGoal(goal._id, goalFormData);
+      await updateGoalForm(goal._id, goalFormData);
+
+      
       console.log('Goal updated successfully!');
     
-    } else {
-    
-    //CREATE Functionality - Send a POST request to create a new Goal
-    const newGoal = await createGoal({ 
-      title: goalFormData.title,
-      description: goalFormData.description,
-      icon: goalFormData.icon,
-      startDate: goalFormData.startDate,
-      endDate: goalFormData.endDate,
-      category: goalFormData.category,
-      link: goalFormData.link, 
-    });
-
-    // Handle the successful response
-    console.log('New goal created:', newGoal);
   }
     //Clear the form data
     setGoalFormData({
@@ -88,10 +75,6 @@ export default function GoalPostForm( {goal} ) {
     console.error("Failed to create/update goal:", error.message);
 
   }
-
-    // Send goalFormData to the backend to calculate progress
-    // Update the goal progress value in the backend/database
-    // Redirect to the appropriate page or update the UI as needed
 
   }
 
@@ -162,7 +145,7 @@ export default function GoalPostForm( {goal} ) {
           />
 
           {/* //Submit Button */}
-          <button type="submit">Submit</button>
+          <button type="submit">Update</button>
 
     </form>
     </div>

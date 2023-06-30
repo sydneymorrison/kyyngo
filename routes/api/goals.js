@@ -16,6 +16,19 @@ router.get('/', goalsCtrl.index);
 router.post('/new', goalsCtrl.createGoal);
 
 
+//INDEX - SHOW / api/goals/:id
+router.get('/:id', goalsCtrl.getGoalById);
+
+
+//PUT /api/goals/:id
+router.put('/:id', goalsCtrl.updateGoal);
+
+//DELETE /api/goals/:id
+router.delete('/:id', goalsCtrl.deleteGoal);
+
+//RETURN View (form) to add a new post
+router.get('/:id/edit', goalsCtrl.editGoal);
+
 
 
 module.exports = router;
