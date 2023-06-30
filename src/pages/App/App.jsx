@@ -35,7 +35,7 @@ export default function App() {
               <Route path="/goals/new" element={<GoalPostFormPage user={user} setUser={setUser} />} />
 
               {/* Track Routes */}
-              <Route path="/goals/track" element={<GoalTrackPage user={user} setUser={setUser} />} />
+              <Route path="/milestones/new" element={<GoalTrackPage user={user} setUser={setUser} />} />
 
               {/* Profile Routes */}
               <Route path="/profile" element={<ProfilePage user={user} setUser={setUser} />} />

@@ -8,10 +8,10 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 
 // GET /api/track
-router.get('/track', milestonesCtrl.getTrackGoalList);
+router.get('/new', milestonesCtrl.getTrackGoalList);
 
 //POST /api/goals/track (create a new milestone goal)
-router.post('/track', milestonesCtrl.createGoalTrackForm);
+router.post('/new', milestonesCtrl.createGoalTrackForm);
 
 
 module.exports = router;

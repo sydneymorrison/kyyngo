@@ -31,6 +31,8 @@ app.use(cors());
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/goals', require('./routes/api/goals'));
 app.use('/api/profiles', require('./routes/api/profiles'));
+app.use('/api/milestones', require('./routes/api/milestones'));
+
 
 
 // The following "catch all" route (note the *) is necessary

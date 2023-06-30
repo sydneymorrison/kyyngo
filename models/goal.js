@@ -15,11 +15,11 @@ const milestoneSchema = new Schema ({
       currentDate: {
         type: Date
       },
-      title: {
-        type: String,
-        ref: 'Goal',
-        required: true
-      },
+      // title: {
+      //   type: String,
+      //   ref: 'Goal',
+      //   required: true
+      // },
       milestoneDescription: {
         type: String,
         required: true
@@ -141,6 +141,26 @@ const goalSchema = Schema({
 }, {
         timestamps: true,
 });
+
+
+// Add Virtual for 'Profile' Model to Goal Model
+goalSchema.virtual('goalProfiles', {
+  ref: 'Profile',
+  localField: '_id',
+  foreignField: 'goals'
+});
+
+// Add Virtual for 'User' Model to Goal Model
+goalSchema.virtual('goalUser', {
+  ref: 'User',
+  localField: 'userId',
+  foreignField: '_id',
+  justOne: true
+});
+
+
+goalSchema.set('toObject', { virtuals: true });
+goalSchema.set('toJSON', { virtuals: true });
 
 const Goal = mongoose.model('Goal', goalSchema);
 const Milestone = mongoose.model('Milestone', milestoneSchema);

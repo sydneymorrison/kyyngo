@@ -1,16 +1,16 @@
 import sendRequest from "./send-request";
-const BASE_URL = '/api/goals';
+const BASE_URL = '/api/milestones';
 
 
 //TRACK
 
 //Index for Goal List
 export async function getTrackGoalList() {
-    return sendRequest(`${BASE_URL}/track`);
+    return sendRequest(`${BASE_URL}/new`);
   }
   
-//Create a milestone
+// POST Create a milestone
 export async function createGoalTrackForm(trackFormData) {
-    return sendRequest(`${BASE_URL}/track`, 'POST', trackFormData);
+    return sendRequest(`${BASE_URL}/new`, 'POST', trackFormData);
   }
   
