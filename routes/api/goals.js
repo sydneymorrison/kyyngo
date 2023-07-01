@@ -24,7 +24,7 @@ router.get('/:id', goalsCtrl.getGoalById);
 router.put('/:id', goalsCtrl.updateGoal);
 
 //DELETE /api/goals/:id
-router.delete('/:id', goalsCtrl.deleteGoal);
+router.delete('/:id', ensureLoggedIn, goalsCtrl.deleteGoal);
 
 //RETURN View (form) to add a new post
 router.get('/:id/edit', goalsCtrl.editGoal);

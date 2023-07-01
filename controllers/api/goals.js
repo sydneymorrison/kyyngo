@@ -154,11 +154,17 @@ async function deleteGoal(req, res) {
    
     try {
         //Find the goal by the ID and delete it
-        const deletedGoal = await Goal.findByIdAndDelete(goalId);
+        const goal = await Goal.findById(goalId);
 
-        if (!deletedGoal) {
+        if (!goal) {
             return res.status(404).json({ error: 'Goal not found'})
         }
+
+        //Delete the goal
+        await goal.remove();
+
+        // //Update the users goals
+        // await User.findByIdAndUpdate(userId, { $pull: { goals: goalId } });
 
         res.status(200).json({ message: 'Goal deleted successfully'});
       

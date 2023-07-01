@@ -13,4 +13,9 @@ router.get('/profile', profilesCtrl.index);
 //POST /api/profiles/new (create a new profile)
 router.post('/new', profilesCtrl.create);
 
+
+
+//DELETE /api/profiles/:profileId/goals/:goalId (delete item on a profile)
+router.delete('/:profileId/goals/:goalId', profilesCtrl.deleteGoal)
+
 module.exports = router;

@@ -4,6 +4,7 @@ const Profile = require('../../models/profile');
 module.exports = {
     index,
     create,
+    deleteGoal
   };
 
 
@@ -44,5 +45,38 @@ async function create(req, res) {
 
     } catch (error) {
         res.status(500).json({ error: 'Failed to create goal', errorMessage: error.message });
+    }
+}
+
+
+//Delete Item on profile page
+async function deleteGoal(req, res) {
+    try {
+        const {profileId, goalId } = req.params;
+
+        //Find the profile by the ID
+        const profile = await Profile.findById(profileId);
+
+        if (!profile) {
+            return res.status(404).json({ error: 'Profile not found'});
+        }
+
+        //Then find the index of the goal within the profiles goal array
+        const goalIndex = profile.goals.findIndex((goal) => goal.id.toString() === goalId);
+
+        if (goalIndex === -1) {
+            return res.status(404).json({ error: 'Goal not found'});
+        }
+
+        //Remove the goal from the profiles goals array
+        profile.goals.splice(goalIndex, 1);
+
+        //The save the update profile 
+        await profile.save();
+
+        return res.status(200).json({ message: 'Goal deleted successfully'});
+    } catch (error) {
+        return res.status(500).json({ error: 'Failed to delete goal', errorMessage: error.message});
+
     }
 }

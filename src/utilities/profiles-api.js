@@ -14,3 +14,7 @@ export async function createProfile(profileFormData) {
   }
 
 
+  //Delete - Items on a profile
+  export async function deleteGoal(profileId, goalId) {
+    return sendRequest(`${BASE_URL}/${profileId}/goals/${goalId}`, 'DELETE');
+  }

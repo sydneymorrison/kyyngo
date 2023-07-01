@@ -3,6 +3,13 @@ import './GoalList.css';
 import GoalListCard from '../../components/GoalListCard/GoalListCard';
 
 export default function GoalList({ goalListItems, handleUpdateGoal, handleDeleteGoal }) {
+
+
+  const handleDelete = (goalId) => {
+    // call the delete goal function
+    handleDeleteGoal(goalId);
+  };
+
   return (
     <div className="goalListContainer">
         {goalListItems.length > 0 ? (

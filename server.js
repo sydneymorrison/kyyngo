@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+
+//Method Override
+var methodOverride = require('method-override');
 // Always require and configure near the top
 require('dotenv').config();
 // Connect to the database

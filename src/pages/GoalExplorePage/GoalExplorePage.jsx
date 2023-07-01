@@ -44,16 +44,20 @@ async function handleUpdateGoal(goalId) {
 
 //DELETE a goal
 async function handleDeleteGoal(goalId) {
+  console.log('Deleting goal with ID:', goalId); 
   try {
     await deleteGoal(goalId);
     //Remove the deleted goal from the list of items   
-    setGoalListItems((prevItems) =>
-      prevItems.filter((goal) => goal._id !== goalId)
+    setGoalListItems((goalListItems) =>
+    goalListItems.filter((goal) => goal._id !== goalId)
   );
   console.log('Goal deleted successfully!');
+  console.log('Updated goalListItems:', goalListItems);
   } catch (error) {
     console.log('Failed to delete goal:', error);
   }
+
+  console.log('delete goal list items', goalListItems);
 }
 
   return (
