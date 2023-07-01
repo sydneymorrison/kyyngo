@@ -3,7 +3,7 @@ import React from 'react'
 
 
 
-export default function GoalDetailCard( { goalDetailItems } ) {
+export default function GoalDetailCard( { goalDetailItems, handleUpdateGoal, handleDeleteGoal } ) {
 
 //Update date to readable format
 const createdAt = new Date(goalDetailItems.createdAt);
@@ -11,6 +11,17 @@ const date = createdAt.getDate();
 const month = createdAt.toLocaleString('default', { month: 'long' });
 const year = createdAt.getFullYear();
 const formattedDate = month + ' ' + date + ', ' + year;
+
+
+function handleUpdateClick (evt) {
+  handleUpdateGoal(goalDetailItems._id);
+  // navigate(`/api/goals/${goalDetailItems._id}`);
+  // navigate(`/goals/${goalDetailItems._id}/edit`);
+}
+
+function handleDeleteClick (evt) {
+handleDeleteGoal(goalDetailItems._id);
+}
 
 
 
@@ -34,6 +45,13 @@ const formattedDate = month + ' ' + date + ', ' + year;
           {/* Follower Count */}
           {/* Star icon */}
           {/* Progress Bar */}
+      </div>
+      <div>
+            {/* {Edit a Goal} */}
+            {/* <Route path="`/goals/${goalId}/edit`" element={<ProfilePage user={user} setUser={setUser} />} /> */}
+            <button onClick={handleUpdateClick}>Edit</button>
+            {/* Delete a Goal} */}
+            <button onClick={handleDeleteClick}>Delete</button>
       </div>
     </div>
   )

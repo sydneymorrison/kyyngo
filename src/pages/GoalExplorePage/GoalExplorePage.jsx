@@ -5,7 +5,7 @@ import GoalList from '../../components/GoalList/GoalList';
 import { useNavigate } from 'react-router-dom';
 // import GoalPostFormUpdate from '../../components/GoalPostFormUpdate/GoalPostFormUpdate';
 //API Routes
-import { getGoalList, deleteGoal, updateGoalForm, updateGoal, getGoalById } from '../../utilities/goals-api';
+import { getGoalList, deleteGoal, getGoalById } from '../../utilities/goals-api';
 
 
 

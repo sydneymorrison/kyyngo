@@ -11,12 +11,14 @@ export default function GoalPostFormPage() {
   const { goalId } = useParams();
   const [goal, setGoal] = useState(null);
 
-  //Query for a single goal in the database so that I can pass it as a prop to the from
+  //Query for a single goal in the database so that I can pass it as a prop to the Post form
   useEffect (() => {
     async function fetchGoalById() {
       try {
+        if (goalId) {
         const fetchedGoalById = await getGoalById(goalId);
         setGoal(fetchedGoalById);
+        }
       } catch (error) {
         console.error('Failed to fetch goal', error )
       }

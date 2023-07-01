@@ -163,8 +163,7 @@ export default function GoalPostForm( {goal} ) {
 
           {/* //Submit Button */}
           <button type="submit">Submit</button>
-
     </form>
-    </div>
-  )
+  </div>
+  );
 }

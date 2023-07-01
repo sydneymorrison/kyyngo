@@ -1,12 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './GoalListCard.css';
 
 
 export default function GoalListCard({ goalListItem, handleUpdateGoal, handleDeleteGoal }) {
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   //Update date to readable format
   const createdAt = new Date(goalListItem.createdAt);
