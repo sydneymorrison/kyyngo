@@ -1,13 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { Route, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './GoalListCard.css';
-// import GoalPostFormUpdate from '../GoalPostFormUpdate/GoalPostFormUpdate';
+
 
 export default function GoalListCard({ goalListItem, handleUpdateGoal, handleDeleteGoal }) {
 
   const navigate = useNavigate();
 
+  //Update date to readable format
   const createdAt = new Date(goalListItem.createdAt);
   const date = createdAt.getDate();
   const month = createdAt.toLocaleString('default', { month: 'long' });
@@ -38,7 +39,12 @@ export default function GoalListCard({ goalListItem, handleUpdateGoal, handleDel
         {formattedDate}
         {/* username from profile model */}
         {/* goal title */}
+
+        {/* Wrap the title in a link that navigates to the Goal Detail Page */}
+        
+        <Link to={`/goals/${goalListItem._id}`}>
         {goalListItem.title}
+        </Link>
         {goalListItem.description}
       </div>
       <div>
