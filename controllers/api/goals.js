@@ -13,7 +13,7 @@ module.exports = {
 
 //GOALS
 
-//INDEX - GET -  /api/goals/
+//INDEX // GOAL - GET -  /api/goals/
 
 async function index(req, res) {
     try {
@@ -23,6 +23,17 @@ async function index(req, res) {
         res.status(500).json({error: 'Failed to retrieve goal'});
     }
 }
+
+//INDEX // PROFILE - GET /api/goals
+async function index(req, res) {
+    try {
+        const goals = await Goal.find().exec();
+        res.status(200).json(goals);
+    } catch (error) {
+        res.status(500).json({error: 'Failed to retrieve goal'});
+    }
+}
+
 
 //CREATE - POST - /api/goals/new
 async function createGoal(req, res) {

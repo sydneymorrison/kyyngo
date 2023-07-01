@@ -4,7 +4,8 @@ const Profile = require('../../models/profile');
 module.exports = {
     index,
     create,
-    deleteGoal
+    deleteGoal,
+    getProfileByUserId
   };
 
 
@@ -19,6 +20,23 @@ async function index(req, res) {
     }
 
 }
+
+
+// Index/Get - Retrieve profile by userId
+async function getProfileByUserId(req, res) {
+    const { userId } = req.params;
+
+    try {
+        const profile = await Profile.findOne({ userId });
+        if (!profile) {
+            return res.status(404).json({error: 'Profile not found'});
+        }
+        res.json(profile);
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ error: 'Failed to retrieve profile'});
+        }
+};
 
 
 //Create Functionality

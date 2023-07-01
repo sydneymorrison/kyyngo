@@ -3,6 +3,7 @@ import ProfileList from '../../components/ProfileList/ProfileList';
 import './ProfilePage.css';
 //API Routes
 import { getProfileList, deleteGoal } from '../../utilities/profiles-api';
+import { getProfileByUserId } from '../../utilities/profiles-api';
 
 
 
@@ -10,6 +11,7 @@ import { getProfileList, deleteGoal } from '../../utilities/profiles-api';
 export default function ProfilePage() {
 
   const [profileListItems, setProfileListItems] = useState([]);
+  const [selectedProfile, setSelectedProfile] = useState({});
 
 
   //Fetch the profile list on the initial loan
@@ -19,7 +21,7 @@ export default function ProfilePage() {
   }, []);
 
 
-  //Call the funciton to call the profile list
+  //Call the function to call the profile list
   const fetchProfileList = async () => {
     try {
       const profileList = await getProfileList();
@@ -49,12 +51,23 @@ export default function ProfilePage() {
     }
   };
 
+  //Select the Profile to add the Form to the profile page
+  const handleProfileFormSelection = (userId) => {
+    const selectedProfile = profileListItems.find((profile) => profile.userId === userId);
+    setSelectedProfile(selectedProfile || {} );
+    console.log('selectedProfile 1:', selectedProfile);
+};
 
 
   return (
     <div>
       <div>ProfilePage</div>
-      <ProfileList profileListItems={profileListItems} handleDeleteGoal={handleDeleteGoal} />
+      <ProfileList 
+        profileListItems={profileListItems} 
+        selectedProfile={selectedProfile}
+        handleDeleteGoal={handleDeleteGoal} 
+        handleProfileFormSelection={handleProfileFormSelection}
+      />
     </div>
   );
 }
