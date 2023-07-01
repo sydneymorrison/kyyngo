@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 // import iconDatabase from '../../database/iconDatabase';
 import emojiDatabase from '../../database/emojiDatabase';
 import goalsCategoryDatabase from '../../database/goalsCategoryDatabase';
-import { updateGoalForm } from '../../utilities/goals-api';
+import { updateGoal } from '../../utilities/goals-api';
+import { useLocation } from 'react-router-dom';
 import './GoalPostFormUpdate.css';
 
 
 
-export default function GoalPostFormUpdate( {goal} ) {
+export default function GoalPostFormUpdate( ) {
 
   const [goalFormData, setGoalFormData] = useState({
     title: "",
@@ -18,6 +19,10 @@ export default function GoalPostFormUpdate( {goal} ) {
     category: "",
     link: "",
   });
+
+ //Transfering state from GoalExplorePage - transfering goal to this page
+  const location = useLocation();
+  const goal = location.state?.goal || null;
 
 
   //Use Effect for Update Functionality
@@ -53,7 +58,7 @@ export default function GoalPostFormUpdate( {goal} ) {
 
     //UPDATE Functionality
     if (goal) {
-      await updateGoalForm(goal._id, goalFormData);
+      await updateGoal(goal._id, goalFormData);
 
       
       console.log('Goal updated successfully!');

@@ -54,9 +54,25 @@ async function createGoal(req, res) {
     }
 }
 
+//SHOW - GET -  /api/goals/:id
+
+async function getGoalById(req, res) {
+    try {
+        const goalId = req.params.id
+        const goal = await Goal.findById(goalId)
+
+        if (!goal) {
+            return res.status(404).json({error: 'Goal not found'});
+        }
+      res.status(200).json(goal);
+    } catch (error) {
+        res.status(500).json({error: 'Failed to retrieve goal', errorMessage: error.message});
+    }
+}
+
+
 
 //UPDATE - PUT - /api/goals/:id
-
 
 async function updateGoal(req, res) {
 
@@ -74,23 +90,25 @@ async function updateGoal(req, res) {
         const { title, description, icon, startDate, endDate, category, link} = req.body;
 
         //Update the fields based on the request body
-        currentGoal.title = req.body.title;
-        currentGoal.description = req.body.description;
-        currentGoal.icon = req.body.icon;
-        currentGoal.startDate = req.body.startDate;
-        currentGoal.endDate = req.body.endDate;
-        currentGoal.category = req.body.category;
-        currentGoal.link = req.body.link;
+        currentGoal.title = title;
+        currentGoal.description = description;
+        currentGoal.icon = icon;
+        currentGoal.startDate = startDate;
+        currentGoal.endDate = endDate;
+        currentGoal.category = category;
+        currentGoal.link = link;
 
         //Save the updatedGoal
-        const updateGoal = await currentGoal.save();
+        const updatedGoal = await currentGoal.save();
 
-        res.status(200).json(updateGoal);
+        res.status(200).json(updatedGoal);
       
     } catch (error) {
       res.status(500).json({ error: 'Failed to update goal', errorMessage: error.message});
     }
 }
+
+
 
 
 //DELETE - DELETE - /api/goals/:id
@@ -106,22 +124,6 @@ async function deleteGoal(req, res) {
     }
 }
 
-
-//SHOW - GET -  /api/goals/:id
-
-async function getGoalById(req, res) {
-    try {
-        const goalId = req.params.id
-        const goal = await Goal.findById(goalId)
-
-        if (!goal) {
-            return res.status(404).json({error: 'Goal not found'});
-        }
-      res.status(200).json(goal);
-    } catch (error) {
-        res.status(500).json({error: 'Failed to retrieve goal', errorMessage: error.message});
-    }
-}
 
 
 //EDIT - GET - /goals/:id/edit  (Return View (form) to edit post)

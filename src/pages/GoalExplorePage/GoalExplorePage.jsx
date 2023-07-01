@@ -5,7 +5,7 @@ import GoalList from '../../components/GoalList/GoalList';
 import { useNavigate } from 'react-router-dom';
 // import GoalPostFormUpdate from '../../components/GoalPostFormUpdate/GoalPostFormUpdate';
 //API Routes
-import { getGoalList, deleteGoal, updateGoalForm, updateGoal } from '../../utilities/goals-api';
+import { getGoalList, deleteGoal, updateGoalForm, updateGoal, getGoalById } from '../../utilities/goals-api';
 
 
 
@@ -33,31 +33,12 @@ export default function GoalExplorePage() {
 async function handleUpdateGoal(goalId) {
 
   try {
-    const goal = await updateGoal(goalId);
+    const goal = await getGoalById(goalId);
     navigate(`/goals/${goalId}/edit`, { state: { goal } });
   } catch (error) {
     console.log('Failed to retrieve goal:', error);
   }
 
-  // //Retrieve the goal from the database
-  // const goal = await updateGoalForm(goalId);
-
-  // //Update goal in the database
-  // const updatedGoalData ={ 
-  //   ...goal,
-  //   title: goalListItems.title,
-  //   description: goalListItems.description,
-  //   icon: goalListItems.icon,
-  //   startDate: goalListItems.startDate,
-  //   endDate: goalListItems.endDate,
-  //   category: goalListItems.category,
-  //   link: goalListItems.link,
-
-  // };
-  // const updatedGoal = await updateGoal(goalId, updatedGoalData);
-
-  // // console.log(`Goal Updated Successfully: ${goalId}`);
-  // console.log('Goal Updated Successfully!', updatedGoal);
 }
 
 

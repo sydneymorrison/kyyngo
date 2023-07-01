@@ -33,7 +33,7 @@ export async function getGoalById(goalId) {
 
 
 //Return View (form to edit post) - /api/goals/:id/edit
-export async function updateGoalForm(goalId) {
+export async function editGoal(goalId) {
   return sendRequest(`${BASE_URL}/${goalId}/edit`);
 }
 

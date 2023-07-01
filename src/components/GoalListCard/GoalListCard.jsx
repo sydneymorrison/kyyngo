@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './GoalListCard.css';
 // import GoalPostFormUpdate from '../GoalPostFormUpdate/GoalPostFormUpdate';
 
-export default function GoalListCard({ goalListItem, handleUpdate, handleDelete }) {
+export default function GoalListCard({ goalListItem, handleUpdateGoal, handleDeleteGoal }) {
 
   const navigate = useNavigate();
 
@@ -17,13 +17,13 @@ export default function GoalListCard({ goalListItem, handleUpdate, handleDelete 
   
 
   function handleUpdateClick (evt) {
-    handleUpdate(goalListItem._id);
+    handleUpdateGoal(goalListItem._id);
     // navigate(`/api/goals/${goalListItem._id}`);
-    navigate(`/goals/${goalListItem._id}/edit`);
+    // navigate(`/goals/${goalListItem._id}/edit`);
   }
 
  function handleDeleteClick (evt) {
-  handleDelete(goalListItem._id);
+  handleDeleteGoal(goalListItem._id);
  }
 
 

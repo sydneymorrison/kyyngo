@@ -12,8 +12,8 @@ export default function GoalList({ goalListItems, handleUpdateGoal, handleDelete
               <GoalListCard 
                 key={goal._id} 
                 goalListItem={goal}
-                handleUpdate={handleUpdateGoal}
-                handleDelete={handleDeleteGoal}
+                handleUpdateGoal={handleUpdateGoal}
+                handleDeleteGoal={handleDeleteGoal}
               />
             ))}
           </div>
