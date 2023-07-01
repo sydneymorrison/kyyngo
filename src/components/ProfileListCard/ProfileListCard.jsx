@@ -16,27 +16,25 @@ export default function ProfileListCard( { profileListItem } ) {
             {/* Has the goal icon in the center of the circle */}
             {profileListItem.goals.map((goal) =>(
                 <div key={goal._id}>
-                    {goal.icon}
-                </div>
-            ))}
+
+                {/* Goal Icon */}
+                {goal.icon}
+                
+                {/* Created at date */}
+                {formattedDate}
+
+                {/* Goal Title */}
+                {goal.title}
+
+                {/* Goal Description */}
+                {goal.description}
+                
         </div>
-        <div>
-          {/* Created at date */}
-          {formattedDate}
-          {/* username from profile model */}
-          {/* goal title */}
-          {profileListItem.goals.map((goal) =>(
-                <div key={goal._id}>
-                    {goal.title}
-                    {goal.description}
-                </div>
-            ))}
-        </div>
-        <div>
+        ))}
             {/* Follower Count */}
             {/* Star icon */}
             {/* Progress Bar */}
         </div>
       </div>
-    )
+    );
 }
