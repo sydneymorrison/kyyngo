@@ -22,8 +22,8 @@ export async function updateGoal(goalId, formData) {
 
 
 //Delete a Goal - api/goals/:id
-export async function deleteGoal(goalId, formData) {
-  return sendRequest(`${BASE_URL}/${goalId}`, 'DELETE', formData);
+export async function deleteGoal(goalId) {
+  return sendRequest(`${BASE_URL}/${goalId}`);
 }
 
 //Index SHOW - Get Goal by single Id /api/goals/:id

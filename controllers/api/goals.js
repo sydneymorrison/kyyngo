@@ -110,22 +110,6 @@ async function updateGoal(req, res) {
 
 
 
-
-//DELETE - DELETE - /api/goals/:id
-
-async function deleteGoal(req, res) {
-   
-
-    try {
-        
-      
-    } catch (error) {
-
-    }
-}
-
-
-
 //EDIT - GET - /goals/:id/edit  (Return View (form) to edit post)
 
 async function editGoal(req,res) {
@@ -160,3 +144,26 @@ async function editGoal(req,res) {
       res.status(500).json({ error: 'Failed to update goal', errorMessage: error.message});
     }
 }
+
+
+//DELETE - DELETE - /api/goals/:id
+
+async function deleteGoal(req, res) {
+
+    const goalId = req.params.id;
+   
+    try {
+        //Find the goal by the ID and delete it
+        const deletedGoal = await Goal.findByIdAndDelete(goalId);
+
+        if (!deletedGoal) {
+            return res.status(404).json({ error: 'Goal not found'})
+        }
+
+        res.status(200).json({ message: 'Goal deleted successfully'});
+      
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to delete goal', errorMessage: error.message});
+    }
+}
+
