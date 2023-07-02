@@ -5,6 +5,8 @@ module.exports = {
     index,
     create,
     deleteGoal,
+    getProfileByProfileId,
+    fetchExistingProfile,
     getProfileByUserId
   };
 
@@ -22,7 +24,51 @@ async function index(req, res) {
 }
 
 
-// Index/Get - Retrieve profile by userId
+
+
+// Index/Get - Retrieve profile by profileId
+async function getProfileByProfileId(req, res) {
+    const { profileId } = req.params;
+
+    try {
+        const profile = await Profile.findById(profileId );
+        if (!profile) {
+            return res.status(404).json({error: 'Profile not found'});
+        }
+
+        //Then check if the userId property exists in the profile object 
+        if (profile.userId.toString() !== userId) {
+            return res.status(403).json({ error: 'Access denied'});
+        }
+
+        //Profile exists and belongs to the logged in user
+        res.json(profile);
+        } catch (error) {
+            console.error('Failed to fetch the profile:', error);
+            res.status(500).json({ error: 'Failed to retrieve profile'});
+        }
+}
+
+
+//Fetch Existing profile - /api/profiles/existing-profile/:profileId
+async function fetchExistingProfile(req, res){
+    try {
+        const { userId } = req.body;
+        const existingProfile = await Profile.findOne( { userId });
+
+        if(existingProfile) {
+            return res.status(200).json({ message: 'Profile already submitted'});
+        }
+            return res.status(200).json({ message: 'Profile not submitted yet'});
+    } catch (error) {
+        console.error('Failed to fetch the profile that exists:', error);
+        res.status(500).json({ error: 'Failed to fetch existing profile'})
+    }
+
+}
+
+
+//Fetch Existing Profile - /api/profiles/existing-profile/:userId
 async function getProfileByUserId(req, res) {
     const { userId } = req.params;
 

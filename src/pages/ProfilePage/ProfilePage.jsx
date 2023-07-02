@@ -12,6 +12,8 @@ export default function ProfilePage() {
 
   const [profileListItems, setProfileListItems] = useState([]);
   const [selectedProfile, setSelectedProfile] = useState({});
+  //To track if a user has already submitted a form
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false); 
 
 
   //Fetch the profile list on the initial loan

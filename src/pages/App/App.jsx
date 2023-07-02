@@ -37,6 +37,7 @@ export default function App() {
               <Route path="/goals/new" element={<GoalPostFormPage user={user} setUser={setUser} />} />
               <Route path="/goals/:id/edit" element={<GoalPostFormUpdate user={user} setUser={setUser} />} />
               <Route path="/goals/:id" element={<GoalDetailPage user={user} setUser={setUser} />} />
+              /api/profiles/existing-profile
 
               {/* Track Routes */}
               <Route path="/milestones/new" element={<GoalTrackPage user={user} setUser={setUser} />} />
@@ -44,6 +45,7 @@ export default function App() {
               {/* Profile Routes */}
               <Route path="/profile" element={<ProfilePage user={user} setUser={setUser} />} />
               <Route path="/profiles/new" element={<ProfileFormPage user={user} setUser={setUser} />} />
+              <Route path="/profiles/existing-profile" element={<ProfileFormPage user={user} setUser={setUser} />} />
 
               {/* <Route path="/orders/new" element={<NewOrderPage />} />
               <Route path="/orders" element={<OrderHistoryPage />} /> */}

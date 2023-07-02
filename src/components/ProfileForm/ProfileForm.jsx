@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { createProfile } from '../../utilities/profiles-api';
+import { checkExistingProfile } from '../../utilities/profiles-service';
+import { fetchExistingProfile } from '../../utilities/profiles-api';
 import './ProfileForm.css';
 
 
@@ -57,20 +59,37 @@ export default function ProfileForm() {
 
 
     //Handle Submit Function
-    async function onSubmitProfileForm (evt) {
+    async function onSubmitProfileForm(evt) {
         evt.preventDefault();
 
-        if(isSubmitted){
+        if(isSubmitted) {
           //Call update Profile Form functionality for a user to update their profile
           updateProfileForm();
 
         } else {
-          //Create logic for profile form to be submitted
-          createProfileForm();
+          try {
+            console.log('profileFormData.userId:', profileFormData.userId);
+            const profileExists = await fetchExistingProfile(profileFormData.userId);
 
-          //Set the isSubmitted State to true
-          setIsSubmitted(true);
+            if (profileExists) {
+              console.log('Profile form already submitted');
+
+              //Display message to user that the profile already exits
+              alert('Profile already submitted. You cannot submit another profile.')
+              return;
+            }
+
+            //Create logic for profile form to be submitted
+            createProfileForm();
+
+            //Set the isSubmitted State to true
+            setIsSubmitted(true);
+        } catch (error) {
+          console.error('Failed to fetch existing profile:', error.message);
+        
         }
+      
+      }
         //Clear the form data
         setProfileFormData({
           firstName: "",

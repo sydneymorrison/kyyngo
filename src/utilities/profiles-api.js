@@ -7,11 +7,16 @@ export async function getProfileList() {
   return sendRequest(`${BASE_URL}/profile`);
 }
 
-//Show // /api/profiles/profile/:userId
+//Show - Profile by ProfileId /api/profiles/profile/:profileId
+export async function getProfileByProfileId(profileId) {
+  return sendRequest(`${BASE_URL}/profile/${profileId}`);
+}
+
+
+//Show - Profile by UserId /api/profiles/profile/:userId
 export async function getProfileByUserId(userId) {
   return sendRequest(`${BASE_URL}/profile/${userId}`);
 }
-
 
 
 //CREATE - /api/profiles/new (Create a profile)
@@ -26,5 +31,9 @@ export async function createProfile(profileFormData) {
   }
 
 
-  //SHOW - /api/profiles
+  //Fetch Existing Profile 
+  export async function fetchExistingProfile(userId) {
+    return sendRequest(`${BASE_URL}/existing-profile`, 'POST', { userId });
+  }
+
   

@@ -104,6 +104,11 @@ const goalSchema = Schema({
 
     milestone: [milestoneSchema],
     tasks: [taskSchema],
+    comment: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Comment',
+      required: true
+  }],
     progress: {
         type: Number,
         default: 0
@@ -155,6 +160,14 @@ goalSchema.virtual('goalUser', {
   ref: 'User',
   localField: 'userId',
   foreignField: '_id',
+  justOne: true
+});
+
+// Add Virtual for 'User' Model to Goal Model
+goalSchema.virtual('goalComment', {
+  ref: 'Comment',
+  localField: '_id',
+  foreignField: 'goalId',
   justOne: true
 });
 
