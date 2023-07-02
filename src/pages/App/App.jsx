@@ -15,6 +15,7 @@ import NavBarDropdown from '../../components/NavBarDropdown/NavBarDropdown';
 import GoalPostFormPage from '../GoalPostFormPage/GoalPostFormPage';
 import GoalPostFormUpdate from '../../components/GoalPostFormUpdate/GoalPostFormUpdate';
 import GoalDetailPage from '../GoalDetailPage/GoalDetailPage';
+import GoalCommentForm from '../../components/GoalCommentForm/GoalCommentForm';
 
 //Profile Components
 import ProfilePage from '../ProfilePage/ProfilePage';
@@ -46,6 +47,10 @@ export default function App() {
               <Route path="/profile" element={<ProfilePage user={user} setUser={setUser} />} />
               <Route path="/profiles/new" element={<ProfileFormPage user={user} setUser={setUser} />} />
               <Route path="/profiles/existing-profile" element={<ProfileFormPage user={user} setUser={setUser} />} />
+
+              {/* Comments Routes */}
+              <Route path="/goals/:id/comments" element={<GoalCommentForm user={user} setUser={setUser} />} />
+
 
               {/* <Route path="/orders/new" element={<NewOrderPage />} />
               <Route path="/orders" element={<OrderHistoryPage />} /> */}

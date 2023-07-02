@@ -41,6 +41,12 @@ const profileSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Task'
       }],
+    
+    comment: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comment',
+        required: true
+    },
 
     createdAt: {
         type: Date,
@@ -51,7 +57,9 @@ const profileSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
-});
+},
+{ timestamps: true }
+);
 
 
 //Add Virtual for 'Goal' Model to Profile Model
@@ -69,6 +77,15 @@ profileSchema.virtual('profileUser', {
     foreignField: '_id',
     justOne: true
 });
+
+//Add Virtual for 'User' Model to Profile Model
+profileSchema.virtual('profileComment', {
+    ref: 'Comment',
+    localField: 'comment',
+    foreignField: '_id',
+    justOne: true
+});
+
 
 
 

@@ -35,6 +35,8 @@ app.use('/api/users', require('./routes/api/users'));
 app.use('/api/goals', require('./routes/api/goals'));
 app.use('/api/profiles', require('./routes/api/profiles'));
 app.use('/api/milestones', require('./routes/api/milestones'));
+app.use('/api/goals/comments', require('./routes/api/comments'));
+
 
 
 

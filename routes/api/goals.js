@@ -10,24 +10,24 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 //GOALS
 
 // GET /api/goals
-router.get('/', goalsCtrl.index);
+router.get('/', ensureLoggedIn, goalsCtrl.index);
 
 //POST /api/goals/new (create a new goal)
-router.post('/new', goalsCtrl.createGoal);
+router.post('/new', ensureLoggedIn, goalsCtrl.createGoal);
 
 
 //INDEX - SHOW / api/goals/:id
-router.get('/:id', goalsCtrl.getGoalById);
+router.get('/:id', ensureLoggedIn, goalsCtrl.getGoalById);
 
 
 //PUT /api/goals/:id
-router.put('/:id', goalsCtrl.updateGoal);
+router.put('/:id', ensureLoggedIn, goalsCtrl.updateGoal);
 
 //DELETE /api/goals/:id
 router.delete('/:id', ensureLoggedIn, goalsCtrl.deleteGoal);
 
 //RETURN View (form) to add a new post
-router.get('/:id/edit', goalsCtrl.editGoal);
+router.get('/:id/edit', ensureLoggedIn, goalsCtrl.editGoal);
 
 
 

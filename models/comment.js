@@ -13,7 +13,7 @@ const commentSchema = new mongoose.Schema({
         required: true
     },
 
-    content: {
+    comment: {
         type: String,
         required:true
     },
@@ -27,6 +27,27 @@ const commentSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
+}, {
+    timestamps: true,
+},
+{
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true }
+}
+);
+
+commentSchema.virtual('user', {
+    ref: 'User',
+    localField: 'userId',
+    foreignField: '_id',
+    justOne: true
+});
+
+commentSchema.virtual('goal', {
+    ref: 'Goal',
+    localField: 'goalId',
+    foreignField: '_id',
+    justOne: true
 });
 
 const Comment = mongoose.model('Comment', commentSchema);
