@@ -1,0 +1,25 @@
+.navContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav > * {
+    margin: 0 10px;
+  }
+  
+  .nav > *:first-child {
+    margin-left: 0;
+  }
+  
+  .nav > *:last-child {
+    margin-right: 0;
+  }
+
+.navBarLogo{
+    margin-bottom: 10px;
+}

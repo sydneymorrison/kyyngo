@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 import NavBarDropdown from '../NavBarDropdown/NavBarDropdown';
-// import NavBar from './NavBar.css'
+import KyyngoLogo from '../../components/KyyngoLogo/KyyngoLogo'
+import './NavBar.css';
+
+//Images
 
 
 export default function NavBar({ user, setUser }) {
@@ -11,7 +14,9 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
+    <div className="navContainer">
     <nav className="nav">
+      <KyyngoLogo className="navBarLogo" />
       <span>Welcome, {user.name}</span>
       <Link to="/">Explore</Link>
       &nbsp; | &nbsp;
@@ -25,5 +30,6 @@ export default function NavBar({ user, setUser }) {
       &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
       <div><NavBarDropdown /></div>
     </nav>
+    </div>
   );
 }

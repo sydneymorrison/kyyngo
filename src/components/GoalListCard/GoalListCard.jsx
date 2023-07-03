@@ -3,6 +3,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './GoalListCard.css';
 
+// Images
+import starIcon from '/Users/sydneymorrison/code/kyyngo/src/images/star-icon-dropshadow.png';
+// import progress100 from '/Users/sydneymorrison/code/kyyngo/src/images/progress-75.png';
+import progressSVG100 from '/Users/sydneymorrison/code/kyyngo/src/images/progress-75.svg';
+
 
 export default function GoalListCard({ goalListItem, handleUpdateGoal, handleDeleteGoal }) {
 
@@ -33,38 +38,53 @@ export default function GoalListCard({ goalListItem, handleUpdateGoal, handleDel
       <div className="goalListCard">
         
         {/* Has the goal icon in the center of the circle */}
-        <div>
-            <div className="goalListCardIcon">
-            {goalListItem.icon}
+      
+        <div className="goalListCard-Row1 goalListCard-Row-1">
+          <div>
+                <div className="goalListCardIconContainer goalListCard-Column-1">
+                  <div className="goalListCardIcon">
+                  {goalListItem.icon}
+                  </div>
+                </div>
             </div>
+
+            {/* GoalListCard Content */}
+            <div className="goalListCardContent goalListCard-Column-2 goalListCardFont">
+              {/* Created at date */}
+              {formattedDate}
+              {/* username from profile model */}
+              {/* goal title */}
+
+              {/* Wrap the title in a link that navigates to the Goal Detail Page */}
+              
+              <Link to={`/goals/${goalListItem._id}`}>
+              {goalListItem.title}
+              </Link>
+              {goalListItem.description}
+            </div>
+
+            
+            <div className="goalListCard-Column-3">
+              {/* Follower Count */}
+
+              {/* Star icon */}
+              {/* <img src="src/images/star-icon.png" alt="star icon" style={{ width: '32px', height: '32px' }} /> */}
+              <img className="goalListCard-Star" src={starIcon} alt="star icon" style={{ width: '25px', height: '25px' }} />
+              {/* Progress Bar */}
+
+              <img className="goalListCard-ProgressBar" src={progressSVG100} alt="progress bar" style={{ width: '150px', height: '26px' }} />
+
+          </div>
         </div>
-
-        {/* GoalListCard Content */}
-        <div className="goalListCardContent">
-          {/* Created at date */}
-          {formattedDate}
-          {/* username from profile model */}
-          {/* goal title */}
-
-          {/* Wrap the title in a link that navigates to the Goal Detail Page */}
-          
-          <Link to={`/goals/${goalListItem._id}`}>
-          {goalListItem.title}
-          </Link>
-          {goalListItem.description}
+  
+      <div className="goalListCard-Row-2">
+        <div className="goalCardListButtonEditAndDeleteContainer">
+              {/* {Edit a Goal} */}
+              {/* <Route path="`/goals/${goalId}/edit`" element={<ProfilePage user={user} setUser={setUser} />} /> */}
+              <button className="goalListCardButton" onClick={handleUpdateClick}>Edit</button>
+              {/* Delete a Goal} */}
+              <button className="goalListCardButton" onClick={handleDeleteClick}>Delete</button>
         </div>
-        <div>
-          {/* Follower Count */}
-          {/* Star icon */}
-          {/* Progress Bar */}
-      </div>
-
-      <div>
-            {/* {Edit a Goal} */}
-            {/* <Route path="`/goals/${goalId}/edit`" element={<ProfilePage user={user} setUser={setUser} />} /> */}
-            <button onClick={handleUpdateClick}>Edit</button>
-            {/* Delete a Goal} */}
-            <button onClick={handleDeleteClick}>Delete</button>
       </div>
 
       {/* {Add the route for the Goal Post Form Update } */}
