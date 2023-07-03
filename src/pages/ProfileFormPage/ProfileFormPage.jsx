@@ -6,7 +6,7 @@ import React from 'react'
 export default function ProfileFormPage() {
   return (
     <div className="profileFormPageContainer">
-    <div>Add A Profile</div>
+    <h1>Add A Profile</h1>
     <ProfileForm />
     </div>
   )

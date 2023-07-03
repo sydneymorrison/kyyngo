@@ -1,0 +1,38 @@
+.loginFormContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* .loginFormContainer form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .loginFormContainer label {
+    margin-bottom: 10px;
+  }
+  
+  .loginFormContainer input[type="text"],
+  .loginFormContainer input[type="password"] {
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+   */
+  
+  
+  
+  
