@@ -4,6 +4,7 @@ const Comment = require('../../models/comment');
 
 module.exports = {
     createComment,
+    getCommentsById
 };
 
 
@@ -44,5 +45,29 @@ async function createComment(req, res) {
     } catch (error) {
         console.error('Failed to create comment:', error);
         res.status(500).json({ error: 'Failed to create comment'});
+    }
+}
+
+
+//GET - /api/comments/:id/comments - Get comments
+async function getCommentsById( req, res) {
+    try {
+        const { id } = req.params;
+
+        //Function for fetching the comments for the specified ID
+        const goal = await Goal.findById(id);
+
+        if (!goal) {
+            return res.status(404).json({ error: 'Goal not found'});
+        }
+
+        //Find all the comments with the specific ID
+        const comments = await Comment.find({ goalId: id });
+
+        //Then return the comments in the response
+        res.status(200).json(comments);
+    } catch (error) {
+        console.log('Failed to retrieve comments', error);
+        res.status(500).json({ error: 'Failed to retrieve comments'});
     }
 }

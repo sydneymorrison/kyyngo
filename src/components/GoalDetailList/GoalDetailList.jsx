@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './GoalDetailList.css';
 import GoalDetailCard from '../../components/GoalDetailCard/GoalDetailCard';
@@ -16,11 +16,10 @@ export default function GoalDetailList( { goalDetailItems, handleUpdateGoal, han
 
 
 
-  
   function handleClick() {
-    //When the Add Commnent is clicked show the GoalCommentForm
-    setShowCommentForm(true);
-    navigate(`/goals/${id}/comments`)
+    //When the Add Comment is clicked show the GoalCommentForm
+    setShowCommentForm((prevShowCommentForm) => !prevShowCommentForm);
+    // navigate(`/goals/${id}/comments`)
   }
 
   //When the Add Comment Form button is not clicked don't show the GoalComment Form Component
@@ -31,28 +30,33 @@ export default function GoalDetailList( { goalDetailItems, handleUpdateGoal, han
   return (
     <div>
     <GoalDetailCard 
-        goalDetailItems={goalDetailItems } 
+        goalDetailItems={goalDetailItems} 
         handleUpdateGoal={handleUpdateGoal}
         handleDeleteGoal={handleDeleteGoal}
     />
-    
+
     {/* Button to navigate to create comment form */}
-    <button onClick={handleClick}>Add Comment</button>
+
+    {/* Toggle between Hide Comment and Add Comment */}
+    <button onClick={handleClick}>
+      {showCommentForm ? 'Hide Comment' : 'Add Comment'}
+    </button>
 
 
+    {/* If the comment form is not showing  */}
     {showCommentForm && (
     <GoalCommentForm
-     goalId={}
+     goalId={id}
+     onCommentFormSubmit={handleCommentFormSubmit}
     />
-
     )}
 
+
     <GoalCommentList
-      goalDetailItems={goalDetailItems } 
+      goalDetailItems={goalDetailItems} 
       handleUpdateGoal={handleUpdateGoal}
       handleDeleteGoal={handleDeleteGoal}
     />
-
 
     </div>
   )

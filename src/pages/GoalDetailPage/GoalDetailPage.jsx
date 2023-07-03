@@ -7,6 +7,8 @@ import GoalDetailList from '../../components/GoalDetailList/GoalDetailList';
 
 //API Routs
 import { deleteGoal, getGoalById } from '../../utilities/goals-api';
+import { getCommentsById } from '../../utilities/comments-api';
+
 
 
 
@@ -33,9 +35,32 @@ export default function GoalDetailPage() {
     fetchGoal();
 }, [id]);
 
+
+
+//Fetch the comments associated with a goal
+useEffect(() => {
+  async function fetchComments() {
+    try {
+      if (id) {
+        const comments = await getCommentsById(id);
+        setGoalDetailItems((prevItems) => ({
+          ...prevItems,
+          comments: comments,
+        }));
+      }
+    } catch (error) {
+      console.log('Failed to retrieve comments', error);
+    }
+  }
+  fetchComments();
+}, [id]);
+
+
 if (!goalDetailItems) {
   return <div> Goal Loading</div>;
 }
+
+
 
 
 //Update a Goal
@@ -61,6 +86,9 @@ async function handleDeleteGoal(goalId) {
     console.log('Failed to delete goal:', error);
   }
 }
+
+
+
 
 
   return (

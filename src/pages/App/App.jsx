@@ -50,6 +50,7 @@ export default function App() {
 
               {/* Comments Routes */}
               <Route path="/goals/:id/comments" element={<GoalCommentForm user={user} setUser={setUser} />} />
+              <Route path="/goals/:id/comments" element={<GoalDetailPage user={user} setUser={setUser} />} />
 
 
               {/* <Route path="/orders/new" element={<NewOrderPage />} />
