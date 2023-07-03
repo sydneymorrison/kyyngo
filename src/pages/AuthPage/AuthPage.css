@@ -6,7 +6,7 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background: url(/Users/sydneymorrison/code/kyyngo/public/images/purple_diamond_sky_4.png) no-repeat center/cover, lightgray;
+    background: url("../../images/purple_diamond_sky_4.png") no-repeat center/cover, lightgray;
 }
 
 .authTitle {
