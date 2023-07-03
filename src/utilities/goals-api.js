@@ -39,5 +39,15 @@ export async function editGoal(goalId) {
 
 
 
+//CREATED NOW
+
+//Create a Comment - /api/goals/:id/comments
+export async function createComment(id, formData) {
+  return sendRequest(`${BASE_URL}/${id}/comments`, 'POST', {id, formData });
+}
+
+
+
+
 
 

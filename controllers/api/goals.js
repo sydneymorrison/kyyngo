@@ -7,7 +7,7 @@ module.exports = {
     updateGoal,
     deleteGoal,
     getGoalById,
-    editGoal
+    editGoal,
 }
 
 
@@ -183,4 +183,8 @@ async function deleteGoal(req, res) {
         res.status(500).json({ error: 'Failed to delete goal', errorMessage: error.message});
     }
 }
+
+
+
+
 

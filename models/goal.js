@@ -104,11 +104,11 @@ const goalSchema = Schema({
 
     milestone: [milestoneSchema],
     tasks: [taskSchema],
-    comment: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Comment',
-      required: true
-  }],
+  //   comment: [{
+  //     type: mongoose.Schema.Types.ObjectId,
+  //     ref: 'Comment',
+  //     required: true
+  // }],
     progress: {
         type: Number,
         default: 0

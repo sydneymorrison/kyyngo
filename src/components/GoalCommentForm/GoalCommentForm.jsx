@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { createComment } from '../../utilities/comments-api';
 import { useParams } from 'react-router-dom';
+// import { useAuth } from '../../hooks/auth';
 import './GoalCommentForm.css';
 
 
 export default function GoalCommentForm() {
+
+
+// const { user } = useAuth();
+// const userId = user._id;
 
 const [commentFormData, setCommentFormData] = useState({
     comment: ''
@@ -12,8 +17,7 @@ const [commentFormData, setCommentFormData] = useState({
 
 
 //Capture the id from the goal id from the GoalDetailList Page using Params
-const { id: goalId } = useParams(); 
-
+const { id } = useParams(); 
 
 
 function handleChange(evt) {
@@ -26,10 +30,12 @@ function handleChange(evt) {
 async function handleSubmit(evt) {
     evt.preventDefault();
 
+    console.log(commentFormData);
+
     try {
-        const newComment = await createComment(goalId, { 
-        comment: commentFormData.comment
-        });
+        const newComment = await createComment(id,
+        commentFormData
+        );
     
         console.log('Submitted comment', newComment);
     

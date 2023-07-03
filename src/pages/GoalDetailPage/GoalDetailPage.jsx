@@ -3,7 +3,7 @@ import './GoalDetailPage.css';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import GoalDetailList from '../../components/GoalDetailList/GoalDetailList';
-import GoalCommentForm from '../../components/GoalCommentForm/GoalCommentForm'
+// import GoalCommentForm from '../../components/GoalCommentForm/GoalCommentForm'
 
 //API Routs
 import { deleteGoal, getGoalById } from '../../utilities/goals-api';
@@ -72,7 +72,6 @@ async function handleDeleteGoal(goalId) {
       handleDeleteGoal={handleDeleteGoal}
     />
 
-    <GoalCommentForm />
     </div>
   )
 }

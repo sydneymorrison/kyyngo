@@ -9,24 +9,37 @@ module.exports = {
 
 //CREATE - /api/goals/:id/comments - Create a new comments
 async function createComment(req, res) {
+    console.log('text');
     try{
-        console.log('req.body create comment:', req.body);
-        const { userId, comment } = req.body;
-        // const { id: goalId } = req.params;
-        const {  id: goalId } = req.params;
+        console.log('req.body create comment:', req.body.formData);
 
-        //Then create a new comment
-        const newComment = await Comment.create({
-            userId: userId,
-            // userId: req.user._id,
-            goalId: goalId,
+        const { id } = req.params;
+        const { comment } = req.body.formData;
+        
+        const goal = await Goal.findById(id);
+
+
+        if(!goal) {
+            return res.status(404).json({ error: 'Goal not found'});
+        }
+
+        const newComment = await new Comment({
+            userId: req.user._id,
+            goalId: id,
+            // goalId: goal._id,
             comment: comment
         });
 
-        //Save the comment to the database
-        // const savedComment = await newComment.save();
+        // await newComment.save();
 
+
+        //Update the goals comment array
+        // goal.comments.push(newComment._id);
+        // await goal.save();
+
+        console.log(newComment);
         res.status(200).json(newComment);
+
     
     } catch (error) {
         console.error('Failed to create comment:', error);

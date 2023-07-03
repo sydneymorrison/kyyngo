@@ -5,7 +5,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 
 //POST /api/goals/new (create a new comment)
-router.post('/goals/:id/comments', ensureLoggedIn, commentsCtrl.createComment);
+router.post('/:id/comments', ensureLoggedIn, commentsCtrl.createComment);
 
 
 module.exports = router;

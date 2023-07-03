@@ -45,7 +45,6 @@ const profileSchema = new mongoose.Schema({
     comment: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment',
-        required: true
     },
 
     createdAt: {
