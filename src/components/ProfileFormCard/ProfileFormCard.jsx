@@ -28,7 +28,7 @@ const loggedInUser = profileListItems.find(
   (profile) => profile.userId);
 
 return (
-  <div className="ProfileFormCardContainer">
+  <div className="profileFormCardContainer">
       <div className="profileFormCardContainer">
           <div>ProfileFormCard</div>
           {loggedInUser && (

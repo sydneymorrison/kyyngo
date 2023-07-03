@@ -1,2 +1,0 @@
-import CommentListItem from './CommentListItem';
-

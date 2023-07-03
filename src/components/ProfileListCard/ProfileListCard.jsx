@@ -11,7 +11,7 @@ export default function ProfileListCard( { profileListItem } ) {
     const formattedDate = month + ' ' + date + ', ' + year;
   
     return (
-      <div className="goalListCardContainer">
+      <div className="profileListCardContainer">
         <div>
             {/* Has the goal icon in the center of the circle */}
             {profileListItem.goals.map((goal) =>(

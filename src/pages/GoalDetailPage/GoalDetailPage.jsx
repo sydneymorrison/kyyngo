@@ -92,8 +92,8 @@ async function handleDeleteGoal(goalId) {
 
 
   return (
-    <div>
-    <div>GoalDetailPage</div>
+    <div className="goalDetailPageContainer">
+    <div>Goal Details</div>
     <GoalDetailList 
       goalDetailItems={goalDetailItems}
       handleUpdateGoal={handleUpdateGoal} 

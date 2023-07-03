@@ -30,8 +30,8 @@ export default function GoalPostFormPage() {
 
 
   return (
-    <div>
-    <h1>GoalPostFormPage</h1>
+    <div className="goalPostFormPageContainer">
+    <h1>Add a New Goal</h1>
     <GoalPostForm goal={goal} />
     </div>
   )

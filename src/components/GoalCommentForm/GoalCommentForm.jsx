@@ -51,7 +51,7 @@ async function handleSubmit(evt) {
 
 
   return (
-    <div className="GoalCommentFormContainer">
+    <div className="goalCommentFormContainer">
     <div>GoalCommentForm</div>
 
     {/* Form for comment */}

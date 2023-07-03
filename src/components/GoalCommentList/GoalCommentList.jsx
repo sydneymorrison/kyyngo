@@ -7,7 +7,7 @@ export default function GoalCommentList( { goalDetailItems } ) {
   const comments = goalDetailItems?.comments || [];
   
   return (
-        <div>
+        <div className="goalCommentList">
             <div>GoalCommentList</div>
             {comments.length > 0 ? (
                     <ul>

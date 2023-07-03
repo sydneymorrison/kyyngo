@@ -28,7 +28,7 @@ export default function GoalDetailList( { goalDetailItems, handleUpdateGoal, han
   }
 
   return (
-    <div>
+    <div className="goalDetailList">
     <GoalDetailCard 
         goalDetailItems={goalDetailItems} 
         handleUpdateGoal={handleUpdateGoal}
