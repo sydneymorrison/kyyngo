@@ -8,12 +8,14 @@ export default function AuthPage({ setUser }) {
   return (
     <main className="authPageContainer">
       <h1 className="authTitle">kyyngo</h1>
-      <button onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'Sign Up'}</button>
+      <div className="loginFormContainer">
+      <button className="singUpFormButton" onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'Sign Up'}</button>
       { showSignUp ?
-          <SignUpForm setUser={setUser} />
+          <SignUpForm className="signUpFormComponent" setUser={setUser} />
           :
-          <LoginForm setUser={setUser} />
+          <LoginForm className="loginFormComponent" setUser={setUser} />
       }
+    </div>
       <h1 className="authTitle2">kyyngo</h1>
       <h1 className="authTitle3">kyyngo</h1>
     </main>

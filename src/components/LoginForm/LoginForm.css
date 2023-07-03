@@ -1,19 +1,8 @@
-.loginFormContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+.loginFormContainer{
+    margin-top: 350px;
+}
 
-
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* .loginFormContainer form {
+.loginForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,18 +10,44 @@
     text-align: center;
   }
   
-  .loginFormContainer label {
-    margin-bottom: 10px;
+  .loginForm label {
+    margin-bottom: 5px;
   }
   
-  .loginFormContainer input[type="text"],
-  .loginFormContainer input[type="password"] {
+  .loginForm input[type="text"],
+  .loginForm input[type="password"] {
     padding: 10px;
     margin-bottom: 20px;
   }
   
-   */
-  
-  
-  
-  
+  .loginForm button {
+    margin-top: 5px;
+  }
+
+.loginFormLabel{
+    color: #000;
+    font-size: 25px;
+    font-family: LT Binary Neue;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 10px;
+}
+
+input {
+    width: 323px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 3px solid #3D1045;
+    background: #D9D9D9;
+}
+
+.loginFormButton {
+    width: 240px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 4px solid #000;
+    background: #9B4FD7;
+}

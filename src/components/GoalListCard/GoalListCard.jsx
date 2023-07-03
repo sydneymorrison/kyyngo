@@ -30,28 +30,35 @@ export default function GoalListCard({ goalListItem, handleUpdateGoal, handleDel
 
   return (
     <div className="goalListCardContainer">
-      <div>
-          {/* Has the goal icon in the center of the circle */}
-          {goalListItem.icon}
-      </div>
-      <div>
-        {/* Created at date */}
-        {formattedDate}
-        {/* username from profile model */}
-        {/* goal title */}
-
-        {/* Wrap the title in a link that navigates to the Goal Detail Page */}
+      <div className="goalListCard">
         
-        <Link to={`/goals/${goalListItem._id}`}>
-        {goalListItem.title}
-        </Link>
-        {goalListItem.description}
-      </div>
-      <div>
+        {/* Has the goal icon in the center of the circle */}
+        <div>
+            <div className="goalListCardIcon">
+            {goalListItem.icon}
+            </div>
+        </div>
+
+        {/* GoalListCard Content */}
+        <div className="goalListCardContent">
+          {/* Created at date */}
+          {formattedDate}
+          {/* username from profile model */}
+          {/* goal title */}
+
+          {/* Wrap the title in a link that navigates to the Goal Detail Page */}
+          
+          <Link to={`/goals/${goalListItem._id}`}>
+          {goalListItem.title}
+          </Link>
+          {goalListItem.description}
+        </div>
+        <div>
           {/* Follower Count */}
           {/* Star icon */}
           {/* Progress Bar */}
       </div>
+
       <div>
             {/* {Edit a Goal} */}
             {/* <Route path="`/goals/${goalId}/edit`" element={<ProfilePage user={user} setUser={setUser} />} /> */}
@@ -65,6 +72,7 @@ export default function GoalListCard({ goalListItem, handleUpdateGoal, handleDel
       path="/goals/:id/edit"
       element={<GoalPostFormUpdate />}
       /> */}
+      </div>
     </div>
   );
 }
