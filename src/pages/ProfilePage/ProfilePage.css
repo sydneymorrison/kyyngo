@@ -3,5 +3,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    /* position: relative; */
+    background: url("../../images/backgrounds/green-sky.png") no-repeat center/cover, lightgray;
+    width: 100vw;
 }
+
+
 

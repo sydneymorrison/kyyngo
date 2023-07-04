@@ -1,6 +1,9 @@
 .goalTrackPageContainer{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     flex-direction: column;
+    background: url("../../images/backgrounds/light-diamond-background-4.png") no-repeat center/cover, lightgray;
+    width: 100vw;
+    height: 100vw;
 }

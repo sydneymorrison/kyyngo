@@ -62,8 +62,7 @@ export default function ProfilePage() {
 
 
   return (
-    <div>
-      <div className="ProfilePageContainer"></div>
+      <div className="profilePageContainer">
       <h1>Profile</h1>
       <ProfileList 
         profileListItems={profileListItems} 

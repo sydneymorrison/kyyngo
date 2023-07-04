@@ -7,6 +7,9 @@ import { useNavigate } from 'react-router-dom';
 //API Routes
 import { getGoalList, deleteGoal, getGoalById } from '../../utilities/goals-api';
 
+//Images
+import purpleDiamond from '../../images/purple-diamond.png';
+
 
 
 export default function GoalExplorePage() {
@@ -62,19 +65,21 @@ async function handleDeleteGoal(goalId) {
 
   return (
     <div className="goalExplorePageContainer">
+      <div>
     <h1>Explore Goals</h1>
     <GoalList 
       goalListItems={goalListItems}
       handleUpdateGoal={handleUpdateGoal} 
       handleDeleteGoal={handleDeleteGoal}
     />
+    {/* <img className="purpleDiamond" src={purpleDiamond} alt="diamond" /> */}
 {/* 
      {/* {Add the route for the Goal Post Form Update } */}
       {/* <Route
       path="/goals/:id/edit"
       element={<GoalPostFormUpdate />}
       /> */} 
-
+    </div>
     </div>
 
 

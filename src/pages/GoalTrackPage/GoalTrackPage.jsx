@@ -29,8 +29,10 @@ export default function TrackGoalPage() {
 
   return (
     <div className="goalTrackPageContainer">
+      <div>
     <h1>Track a Goal</h1>
     <GoalTrackList goals={goalTrackListItems} />
+    </div>
     </div>
   );
 }

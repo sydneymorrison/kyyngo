@@ -1,6 +1,10 @@
 .goalPostFormPageContainer{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     flex-direction: column;
+    position: relative;
+    background: url("../../images/backgrounds/light-diamond-background-5.png") no-repeat center/cover, lightgray;
+    width: 100vw;
+    height: 100vw;
 }
