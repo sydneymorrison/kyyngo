@@ -98,72 +98,96 @@ export default function GoalPostForm( {goal} ) {
   
   return (
     <div className="goalPostFormContainer">
-      <form className="goalPostForm" onSubmit={onSubmitGoalPostForm}>
-        {/* //Input for Title */}
-        <label> Title</label>
-        <input
-          name="title"
-          value={goalFormData.title}
-          onChange={handleChange}
-        />
+      <div className="goalPostFormComponent">
+        <form className="goalPostForm" onSubmit={onSubmitGoalPostForm}>
+          
+          {/* //Input for Title */}
+          <div className="goalPostFormRow">
+            <label className="goalPostFormLabel"> Title</label>
+            <input
+              name="title"
+              value={goalFormData.title}
+              onChange={handleChange}
+              className="goalPostFormInput"
+            />
+          </div>
 
-          {/* //Input for Description */}
-          <label> Description</label>
-          <input
-            name="description"
-            value={goalFormData.description}
-            onChange={handleChange}
-          />
+            {/* //Input for Description */}
+            <div className="goalPostFormRow">
+              <label className="goalPostFormLabel"> Description</label>
+              <input
+                name="description"
+                value={goalFormData.description}
+                onChange={handleChange}
+                className="goalPostFormInput"
+              />
+            </div>
 
-          {/* //Input for Icon */}
-          <label>Icon</label>
-          <select name="icon" value={goalFormData.icon} onChange={handleChange}>
-            <option value="">Select an icon</option>
-            {emojiDatabase.map((emoji) => (
-              <option key={emoji.icon} value={emoji.icon}>
-                {emoji.icon}
-              </option>
-            ))}
-          </select>
+            {/* //Input for Icon */}
+            <div className="goalPostFormRow">
+              <label className="goalPostFormLabel">Icon</label>
+              <select className="goalPostFormSelect" name="icon" value={goalFormData.icon} onChange={handleChange}>
+                <option value="">Select an icon</option>
+                {emojiDatabase.map((emoji) => (
+                  <option key={emoji.icon} value={emoji.icon}>
+                    {emoji.icon}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-          {/* //Input for Start Date */}
-          <label> Start Date</label>
-          <input
-            name="startDate"
-            value={goalFormData.startDate}
-            onChange={handleChange}
-          />
+            {/* //Input for Start Date */}
+            <div className="goalPostFormRow">
+              <label className="goalPostFormLabel"> Start Date</label>
+              <input
+                name="startDate"
+                value={goalFormData.startDate}
+                onChange={handleChange}
+                className="goalPostFormInput"
+              />
+            </div>
 
-          {/* //Input for End Date */}
-          <label> End Date</label>
-          <input
-            name="endDate"
-            value={goalFormData.endDate}
-            onChange={handleChange}
-          />
+            {/* //Input for End Date */}
+            <div className="goalPostFormRow">
+              <label className="goalPostFormLabel"> End Date</label>
+              <input
+                name="endDate"
+                value={goalFormData.endDate}
+                onChange={handleChange}
+                className="goalPostFormInput"
+              />
+            </div>
 
-          {/* //Input for Category */}
-          <label>Category</label>
-          <select name="category" value={goalFormData.category} onChange={handleChange}>
-            {goalsCategoryDatabase.map((category) => (
-              <option key={category.label} value={category.label}>
-                {category.label}
-              </option>
-            ))}
-          </select>
+            {/* //Input for Category */}
+            <div className="goalPostFormRow">
+              <label className="goalPostFormLabel">Category</label>
+              <select className="goalPostFormSelect" name="category" value={goalFormData.category} onChange={handleChange}>
+                {goalsCategoryDatabase.map((category) => (
+                  <option key={category.label} value={category.label}>
+                    {category.label}
+                  </option>
+                ))}
+              </select>
+            </div>
 
 
-          {/* //Input for Link */}
-          <label> Link</label>
-          <input
-            name="link"
-            value={goalFormData.link}
-            onChange={handleChange}
-          />
+            {/* //Input for Link */}
+            <div className="goalPostFormRow">
+              <label className="goalPostFormLabel"> Link</label>
+              <input
+                name="link"
+                value={goalFormData.link}
+                onChange={handleChange}
+                className="goalPostFormInput"
+              />
+            </div>
 
-          {/* //Submit Button */}
-          <button type="submit">Submit</button>
-    </form>
+            {/* //Submit Button */}
+            <div className="goalPostFormButtonContainer">
+            <button className="goalPostFormButton" type="submit">Submit</button>
+            </div>
+      </form>
+    </div>
   </div>
   );
 }

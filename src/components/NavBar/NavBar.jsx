@@ -15,21 +15,21 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <div className="navContainer">
-    <nav className="nav">
-      <KyyngoLogo className="navBarLogo" />
-      <span>Welcome, {user.name}</span>
-      <Link to="/">Explore</Link>
-      &nbsp; | &nbsp;
-      <Link to="/milestones/new">Track</Link>
-      &nbsp;&nbsp;
-      <Link to="/goals/chat">Goals</Link>
-      &nbsp;&nbsp;
-      <Link to="/profile">Profile</Link>
-      &nbsp;&nbsp;
-      {/* <Link to="/settings">Settings</Link> */}
-      &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
-      <div><NavBarDropdown /></div>
-    </nav>
+      <nav className="nav navFont">
+        <KyyngoLogo className="navBarLogo" />
+        <span>Welcome, {user.name}</span>
+        <Link to="/">Explore</Link>
+        &nbsp; | &nbsp;
+        <Link to="/milestones/new">Track</Link>
+        &nbsp;&nbsp;
+        <Link to="/goals/chat">Goals</Link>
+        &nbsp;&nbsp;
+        <Link to="/profile">Profile</Link>
+        &nbsp;&nbsp;
+        {/* <Link to="/settings">Settings</Link> */}
+        &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
+        <div><NavBarDropdown /></div>
+      </nav>
     </div>
   );
 }

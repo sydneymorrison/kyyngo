@@ -29,7 +29,7 @@ export default function App() {
     <main className="App">
       { user ?
           <>
-            <NavBar user={user} setUser={setUser} />
+            <NavBar className="navContainer" user={user} setUser={setUser} />
             <Routes>
               {/* Goals Routes */}
               <Route path="/" element={<GoalExplorePage user={user} setUser={setUser} />} />

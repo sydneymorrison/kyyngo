@@ -1,0 +1,29 @@
+.navBarDropdownButton {
+    width: 100px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 2px solid #000;
+    background: #9B4FD7;
+}
+
+.navBarDropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+  }
+  
+  .navBarDropdownContent a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .navBarDropdown:hover .navBarDropdownContent {
+    display: block;
+  }

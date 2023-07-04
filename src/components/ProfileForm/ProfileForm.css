@@ -1,0 +1,34 @@
+.profileFormContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 606px;
+    height: 500px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 5px solid #120C01;
+    background: #F4F4F4;
+} 
+
+.profileFormComponent {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .profileForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.profileFormRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    margin-bottom: 15px;
+  }
+
+  
+

@@ -103,46 +103,64 @@ export default function ProfileForm() {
       
       return (
         <div className="profileFormContainer">
+          <div className="profileFormComponent">
           <form className="profileForm" onSubmit={onSubmitProfileForm}>
+            
             {/* //Input for First Name */}
-            <label> First Name</label>
+            <div className="profileFormRow">
+            <label className="profileFormLabel"> First Name</label>
             <input
               name="firstName"
               value={profileFormData.firstName}
               onChange={handleChange}
+              className="profileFormInput"
             />
+            </div>
     
               {/* //Input for Last Name */}
-              <label> Last Name</label>
+              <div className="profileFormRow">
+              <label className="profileFormLabel"> Last Name</label>
               <input
                 name="lastName"
                 value={profileFormData.lastName}
                 onChange={handleChange}
+                className="profileFormInput"
               />
+              </div>
     
+
               {/* //Input for Username */}
-              <label>Username</label>
+              <div className="profileFormRow">
+              <label className="profileFormLabel">Username</label>
               <input
                 name="username"
                 value={profileFormData.username}
                 onChange={handleChange}
+                className="profileFormInput"
               />
+              </div>
     
               {/* //Input for Profile Picture */}
-              <label> Profile Picture</label>
+              <div className="profileFormRow">
+              <label className="profileFormLabel"> Profile Picture</label>
               <input
                 name="profilePicture"
                 value={profileFormData.profilePicture}
                 onChange={handleChange}
+                className="profileFormInput"
               />
+              </div>
     
               {/* //Input for Bio */}
-              <label> Bio</label>
+              <div className="profileFormRow">
+              <label className="profileFormLabel"> Bio</label>
               <input
                 name="bio"
                 value={profileFormData.bio}
                 onChange={handleChange}
+                className="profileFormInput"
               />
+              </div>
     
     
               {/* //Submit Button */}
@@ -150,5 +168,6 @@ export default function ProfileForm() {
     
         </form>
         </div>
+      </div>
   );
 }

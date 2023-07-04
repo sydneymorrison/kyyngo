@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import './GoalPostFormPage.css';
 import { getGoalById } from '../../utilities/goals-api';
 import GoalPostForm from '../../components/GoalPostForm/GoalPostForm';
+import './GoalPostFormPage.css';
 
 //APIS
 
@@ -31,8 +32,10 @@ export default function GoalPostFormPage() {
 
   return (
     <div className="goalPostFormPageContainer">
+      <div className="goalPostFormPageContent">
     <h1>Add a New Goal</h1>
     <GoalPostForm goal={goal} />
+    </div>
     </div>
   )
 }
