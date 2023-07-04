@@ -1,5 +1,10 @@
 import './GoalDetailCard.css'
+// import '../../components/GoalDetailCard/GoalDetailCard.css';
 import React from 'react'
+
+// Images
+import starIcon from '/Users/sydneymorrison/code/kyyngo/src/images/star-icon-dropshadow.png';
+import progressSVG100 from '/Users/sydneymorrison/code/kyyngo/src/images/progress-75.svg';
 
 
 
@@ -27,32 +32,58 @@ handleDeleteGoal(goalDetailItems._id);
 
   return (
     <div className="goalDetailCardContainer">
-        <div>
-          {/* Has the goal icon in the center of the circle */}
-          {goalDetailItems.icon}
+      <div className="goalDetailCard">
+
+      {/* Has the goal icon in the center of the circle */}
+      <div className="goalDetailCard-Row1 goalDetailCard-Row-1">
+          <div>
+
+            <div className="goalDetailCardIconContainer goalDetailCard-Column-1">
+                <div className="goalDetailCardIcon">
+                {goalDetailItems.icon}
+                </div>
+        </div>
       </div>
-      <div>
+
+
+      {/* GoalDetailCard Content */}
+      <div className="goalDetailCardContent goalDetailCard-Column-2 goalDetailCardFont">
         {/* Created at date */}
+        <div className="goalFormattedDate">
         {formattedDate}
+        </div>
         {/* username from profile model */}
         {/* goal title */}
 
         {/* Wrap the title in a link that navigates to the Goal Detail Page */}
+        <div className="goalTitle">
         {goalDetailItems.title}
+        </div>
+        <div className="goalDescription">
         {goalDetailItems.description}
+        </div>
       </div>
-      <div>
+
+
+      <div className="goalDetailCard-Column-3">
           {/* Follower Count */}
           {/* Star icon */}
-          {/* Progress Bar */}
+          <img className="goalDetailCard-Star" src={starIcon} alt="star icon" style={{ width: '25px', height: '25px' }} />
+              {/* Progress Bar */}
+              <img className="goalDetailCard-ProgressBar" src={progressSVG100} alt="progress bar" style={{ width: '150px', height: '26px' }} />
       </div>
-      <div>
+      </div>
+      
+      <div className="goalDetailCard-Row-2">
+      <div className="goalCardDetailButtonEditAndDeleteContainer">
             {/* {Edit a Goal} */}
             {/* <Route path="`/goals/${goalId}/edit`" element={<ProfilePage user={user} setUser={setUser} />} /> */}
-            <button onClick={handleUpdateClick}>Edit</button>
+            <button className="goalDetailCardButton" onClick={handleUpdateClick}>Edit</button>
             {/* Delete a Goal} */}
-            <button onClick={handleDeleteClick}>Delete</button>
+            <button className="goalDetailCardButton" onClick={handleDeleteClick}>Delete</button>
+            </div>
+      </div>
       </div>
     </div>
-  )
+  );
 }

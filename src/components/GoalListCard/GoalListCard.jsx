@@ -5,7 +5,6 @@ import './GoalListCard.css';
 
 // Images
 import starIcon from '/Users/sydneymorrison/code/kyyngo/src/images/star-icon-dropshadow.png';
-// import progress100 from '/Users/sydneymorrison/code/kyyngo/src/images/progress-75.png';
 import progressSVG100 from '/Users/sydneymorrison/code/kyyngo/src/images/progress-75.svg';
 
 
@@ -68,10 +67,8 @@ export default function GoalListCard({ goalListItem, handleUpdateGoal, handleDel
               {/* Follower Count */}
 
               {/* Star icon */}
-              {/* <img src="src/images/star-icon.png" alt="star icon" style={{ width: '32px', height: '32px' }} /> */}
               <img className="goalListCard-Star" src={starIcon} alt="star icon" style={{ width: '25px', height: '25px' }} />
               {/* Progress Bar */}
-
               <img className="goalListCard-ProgressBar" src={progressSVG100} alt="progress bar" style={{ width: '150px', height: '26px' }} />
 
           </div>
@@ -86,12 +83,6 @@ export default function GoalListCard({ goalListItem, handleUpdateGoal, handleDel
               <button className="goalListCardButton" onClick={handleDeleteClick}>Delete</button>
         </div>
       </div>
-
-      {/* {Add the route for the Goal Post Form Update } */}
-      {/* <Route
-      path="/goals/:id/edit"
-      element={<GoalPostFormUpdate />}
-      /> */}
       </div>
     </div>
   );

@@ -1,0 +1,24 @@
+.goalCommentCardContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.goalCommentCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 352px;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 3px solid #000;
+    background: #FCFCFC;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-left: auto;
+}
+
+.goalCommentCardCreatedAt{
+    margin-right: 10px;
+}

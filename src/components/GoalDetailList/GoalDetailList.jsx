@@ -28,36 +28,40 @@ export default function GoalDetailList( { goalDetailItems, handleUpdateGoal, han
   }
 
   return (
-    <div className="goalDetailList">
-    <GoalDetailCard 
-        goalDetailItems={goalDetailItems} 
-        handleUpdateGoal={handleUpdateGoal}
-        handleDeleteGoal={handleDeleteGoal}
-    />
+    <div className="goalDetailListContainer">
+      <div className="goalDetailList">
+        <GoalDetailCard 
+            goalDetailItems={goalDetailItems} 
+            handleUpdateGoal={handleUpdateGoal}
+            handleDeleteGoal={handleDeleteGoal}
+        />
+    </div>
 
     {/* Button to navigate to create comment form */}
 
     {/* Toggle between Hide Comment and Add Comment */}
-    <button onClick={handleClick}>
+    <button className="goalDetailButton" onClick={handleClick}>
       {showCommentForm ? 'Hide Comment' : 'Add Comment'}
     </button>
 
 
     {/* If the comment form is not showing  */}
+    <div className="goalCommentFormComponent">
     {showCommentForm && (
     <GoalCommentForm
      goalId={id}
      onCommentFormSubmit={handleCommentFormSubmit}
     />
     )}
+    </div>
 
-
+    <div className="goalCommentListContainer">
     <GoalCommentList
       goalDetailItems={goalDetailItems} 
       handleUpdateGoal={handleUpdateGoal}
       handleDeleteGoal={handleDeleteGoal}
     />
-
+    </div>
     </div>
   )
 }

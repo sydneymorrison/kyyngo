@@ -82,82 +82,104 @@ export default function TrackGoalForm( { goalTrackListItems } ) {
       
       return (
         <div className="goalTrackFormContainer">
+          <div className="goalTrackFormComponent">
           <form className="goalTrackForm" onSubmit={onSubmitTrackGoalPostForm}>
             
             {/* //Input for Current Date */}
-            <label> Today's Date</label>
+            <div className="goalTrackFormRow">
+            <label className="goalTrackFormLabel"> Today's Date</label>
             <input
               name="currentDate"
               value={trackGoalFormData.currentDate}
               onChange={handleChange}
+              className="goalTrackFormInput"
             />
+            </div>
 
 
             {/* Input for Goal */}
-            <label>Goal</label>
-            <select
-              name="goalId"
-              value={trackGoalFormData.goalId}
-              onChange={handleChange}
-            >
-              <option value="" className="goalTrackFormOption">
-                Select a goal
-              </option>
-              {goalTrackListItems &&
-                goalTrackListItems.length > 0 &&
-                goalTrackListItems[0].goalId.map((goal) => (
-                  <option key={goal._id} value={goal._id}>
-                    {goal.title}
-                  </option>
-                ))}
-            </select>
+            <div className="goalTrackFormRow">
+              <label className="goalTrackFormLabel">Goal</label>
+              <select
+                name="goalId"
+                value={trackGoalFormData.goalId}
+                onChange={handleChange}
+                className="goalTrackFormSelect"
+              >
+                <option value="" className="goalTrackFormOption">
+                  Select a goal
+                </option>
+                {goalTrackListItems &&
+                  goalTrackListItems.length > 0 &&
+                  goalTrackListItems[0].goalId.map((goal) => (
+                    <option key={goal._id} value={goal._id}>
+                      {goal.title}
+                    </option>
+                  ))}
+              </select>
+            </div>
       
     
               {/* //Input for Milestone Description */}
-              <label>Milestone Description</label>
-              <input
-                name="milestoneDescription"
-                value={trackGoalFormData.milestoneDescription}
-                onChange={handleChange}
-              />
-    
-              {/* //Input for Time Allocation - Hours */}
-              <label>Hours</label>
-              <input
-                type="number"
-                name="timeAllocation.hours"
-                value={trackGoalFormData.timeAllocation.hours}
-                onChange={handleChange}
-                inputMode="numeric"
-                min="0" 
-              />
+              <div className="goalTrackFormRow">
+                <label className="goalTrackFormLabel">Milestone Description</label>
+                <input
+                  name="milestoneDescription"
+                  value={trackGoalFormData.milestoneDescription}
+                  onChange={handleChange}
+                  className="goalTrackFormInput"
+                />
+                </div>
+      
+                {/* //Input for Time Allocation - Hours */}
+                <div className="goalTrackFormRow">
+                  <label className="goalTrackFormLabel">Hours</label>
+                  <input
+                    type="number"
+                    name="timeAllocation.hours"
+                    value={trackGoalFormData.timeAllocation.hours}
+                    onChange={handleChange}
+                    inputMode="numeric"
+                    min="0" 
+                    className="goalTrackFormInput"
+                  />
+              </div>
 
               {/* //Input for Time Allocation - Hours */}
-              <label>Minutes</label>
-              <input
-                type="number"
-                name="timeAllocation.minutes"
-                value={trackGoalFormData.timeAllocation.minutes}
-                onChange={handleChange}
-                inputMode="numeric"
-                min="0" 
-              />
+              <div className="goalTrackFormRow">
+                <label className="goalTrackFormLabel">Minutes</label>
+                <input
+                  type="number"
+                  name="timeAllocation.minutes"
+                  value={trackGoalFormData.timeAllocation.minutes}
+                  onChange={handleChange}
+                  inputMode="numeric"
+                  min="0" 
+                  className="goalTrackFormInput"
+                />
+              </div>
     
               {/* //Input for Completion */}
-              <label>Completion Status</label>
-              <select
-                name="isCompleted"
-                value={trackGoalFormData.isCompleted}
-                onChange={handleChange}
-              >
-                <option value="Not Completed">Not Completed</option>
-                <option value="Completed">Completed</option>
-              </select>
+              <div className="goalTrackFormRow">
+                <label className="goalTrackFormLabel">Completion Status</label>
+                <select
+                  name="isCompleted"
+                  value={trackGoalFormData.isCompleted}
+                  onChange={handleChange}
+                  className="goalTrackFormSelect"
+                >
+                  <option value="Not Completed">Not Completed</option>
+                  <option value="Completed">Completed</option>
+                </select>
+              </div>
     
               {/* //Submit Button */}
-              <button type="submit">Submit</button>
+              <div className="goalPostFormButtonContainer">
+              <button className="goalTrackFormButton" type="submit">Submit</button>
+              </div>
     
         </form>
+        </div>
         </div>
       )
 }

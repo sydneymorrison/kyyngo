@@ -7,18 +7,20 @@ export default function GoalCommentList( { goalDetailItems } ) {
   const comments = goalDetailItems?.comments || [];
   
   return (
-        <div className="goalCommentList">
-            <div>GoalCommentList</div>
+        <div className="goalCommentListContainer">
+            <h1>Kyyngo Community</h1>
             {comments.length > 0 ? (
-                    <ul>
+                      <div>
                         {comments.map((comment) => (
                         <GoalCommentCard
                             key={comment._id}
                             comment={comment.comment}
                             createdAt={comment.createdAt}
+                            goalDetailItems={goalDetailItems}
+
                         />
                         ))}
-                    </ul>
+                        </div>
                 ) : (
                 <p>No comments yet!</p>
                 )}

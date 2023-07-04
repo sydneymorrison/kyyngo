@@ -52,20 +52,19 @@ async function handleSubmit(evt) {
 
   return (
     <div className="goalCommentFormContainer">
-    <div>GoalCommentForm</div>
-
     {/* Form for comment */}
     <form onSubmit={handleSubmit}>
-        <label>
+        <label className="goalCommentFormLabel">
             Comment:
             <input
                 type="text"
                 name="comment"
                 value={commentFormData.comment}
                 onChange={handleChange}
+                className="goalCommentFormInput"
             />
         </label>
-        <button type="submit">Add Comment</button>
+        <button className="goalCommentFormButton" type="submit">Add Comment</button>
     </form>
     </div>
   );
