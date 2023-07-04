@@ -8,7 +8,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 
 // GET /api/track
-router.get('/new', milestonesCtrl.getTrackGoalList);
+router.get('/', milestonesCtrl.getTrackGoalList);
 
 //POST /api/goals/track (create a new milestone goal)
 router.post('/new', milestonesCtrl.createGoalTrackForm);

@@ -29,13 +29,12 @@ const loggedInUser = profileListItems.find(
 
 return (
   <div className="profileFormCardContainer">
-      <div className="profileFormCardContainer">
-          <div>ProfileFormCard</div>
+      <div className="profileFormCard">
           {loggedInUser && (
             <div>
-            <div>{loggedInUser.username}</div>
-            <img src={loggedInUser.profilePicture} alt="Profile Picture" />
-            <div>{loggedInUser.bio}</div>
+            <div className="profileFormCardUsername">{loggedInUser.username}</div>
+            <img className="profileFormCardProfilePhoto" src={loggedInUser.profilePicture} alt="Profile Picture" />
+            <div className="profileFormCardProfileBio"v>{loggedInUser.bio}</div>
           </div>
           )}
   </div>

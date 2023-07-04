@@ -1,7 +1,8 @@
 
-const { Goal, Milestone, Task } = require('../../models/goal');
-// const Profile = require('../../models/profile');
-// const User = require('../../models/user');
+const { Goal } = require('../../models/goal');
+const Profile = require('../../models/profile');
+const User = require('../../models/user');
+const { Milestone } = require('../../models/goal');
 
 
 module.exports = {
@@ -14,15 +15,19 @@ module.exports = {
 //Get index
 async function getTrackGoalList(req, res) {
     try {
-        const goals = await Milestone.find().populate('goalId').exec();
-        res.status(200).json(goals);
-
-        console.log('milestone_goals:', goals);
+      const goals = await Goal.find();
+      const goalIds = goals.map((goal) => goal._id);
+      const milestones = await Milestone.find().populate({ path: 'goalId', match: { _id: { $in: goalIds } } }).exec();
+      res.status(200).json(milestones);
+      console.log('milestones:', milestones);
     } catch (error) {
-        res.status(500).json({
-            error: 'Failed to retrieve goals for track form'});
+      console.error('Failed to retrieve goals for track form', error);
+      res.status(500).json({
+        error: 'Failed to retrieve goals for track form',
+      });
     }
-}
+  }
+  
 
 
 //TRACK GOALS THROUGH MILESTONE SCHEMA

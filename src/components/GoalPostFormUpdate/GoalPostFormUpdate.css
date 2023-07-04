@@ -1,0 +1,84 @@
+.goalPostFormHeading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.goalPostUpdateFormContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 606px;
+    height: 600px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 5px solid #120C01;
+    background: #F4F4F4;
+    margin-left: 450px;
+    margin-top: 50px;
+}
+
+
+.goalPostFormComponent {
+    display: flex;
+    justify-content: center;
+  }
+  
+
+.goalPostForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.goalPostFormRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    margin-bottom: 15px;
+  }
+  
+
+.goalPostFormLabel{
+    font-family: TheGoodMonolith;
+    font-size: 25px;
+    flex-shrink: 0;
+    align-self: flex-start; 
+    margin: 10px;
+}
+
+.goalPostFormSelect{
+    width: 352px;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 3px solid #000;
+    background: #FCFCFC;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-left: auto;
+}
+
+.goalPostFormInput{
+    width: 352px;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 3px solid #000;
+    background: #FCFCFC;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-left: auto;
+}
+
+.goalPostFormButton{
+    width: 191px;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 4px solid #000;
+    background: #9B4FD7;
+    margin-top: 5px;
+}

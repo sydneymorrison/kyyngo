@@ -3,4 +3,17 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: url("../../images/purple-sky.png") no-repeat center/cover, lightgray;
+    width: 100vw; 
+    
+
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    /* overflow: hidden; */
+    /* background: url("../../images/purple-sky.png") no-repeat center/cover, lightgray; */ 
 }
+

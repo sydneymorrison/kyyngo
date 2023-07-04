@@ -7,12 +7,16 @@ import ProfileFormCard from '../../components/ProfileFormCard/ProfileFormCard'
 export default function ProfileList( { profileListItems, selectedProfile, handleProfileFormSelection }) {
   return (
     <div className="profileListContainer">
+
+      <div className="profileListProfileFormCardComponent">
         <ProfileFormCard 
           // profileListItems={profileListItems} 
           profileListItems={profileListItems} 
           selectedProfile={selectedProfile}
         />
+        </div>
 
+        <div className="profileListCardComponent">
        {profileListItems.map((profileListItem) => (
             <ProfileListCard 
               key={profileListItem._id} 
@@ -20,6 +24,7 @@ export default function ProfileList( { profileListItems, selectedProfile, handle
               handleProfileFormSelection={handleProfileFormSelection}
             />
         ))}
+        </div>
     </div>
   );
 }

@@ -12,20 +12,18 @@ export default function TrackGoalPage() {
 
   const [goalTrackListItems, setGoalTrackListItems] = useState([]);
     
-    useEffect(() => {
-      async function fetchGoals() {
-        try{
-          const goalTrackList = await getTrackGoalList();
-          setGoalTrackListItems(goalTrackList);
-
-          console.log('goalTrackList', goalTrackList);
-        
-        } catch (error) {
-          console.error("Failed to fetch goals:", error);
-        }
-      }  
-      fetchGoals();
-    }, []);
+  useEffect(() => {
+    async function fetchGoals() {
+      try {
+        const goalTrackList = await getTrackGoalList();
+        setGoalTrackListItems(goalTrackList);
+        console.log('goalTrackList_milestone', goalTrackList);
+      } catch (error) {
+        console.error('Failed to fetch goals:', error);
+      }
+    }
+    fetchGoals();
+  }, []);
 
 
 

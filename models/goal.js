@@ -7,11 +7,11 @@ const milestoneSchema = new Schema ({
         ref: 'User',
         required: true
     },
-    goalId: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Goal',
-        required: true
-      }],
+    goalId:[{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Goal',
+      required: true
+    }],
       currentDate: {
         type: Date
       },
@@ -102,7 +102,7 @@ const goalSchema = Schema({
         required: true
     },
 
-    milestone: [milestoneSchema],
+    milestones: [milestoneSchema],
     tasks: [taskSchema],
   //   comment: [{
   //     type: mongoose.Schema.Types.ObjectId,

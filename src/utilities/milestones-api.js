@@ -6,7 +6,7 @@ const BASE_URL = '/api/milestones';
 
 //Index for Goal List
 export async function getTrackGoalList() {
-    return sendRequest(`${BASE_URL}/new`);
+    return sendRequest(`${BASE_URL}/`);
   }
   
 // POST Create a milestone

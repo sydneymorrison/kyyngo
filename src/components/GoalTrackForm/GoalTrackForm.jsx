@@ -111,7 +111,7 @@ export default function TrackGoalForm( { goalTrackListItems } ) {
                 </option>
                 {goalTrackListItems &&
                   goalTrackListItems.length > 0 &&
-                  goalTrackListItems[0].goalId.map((goal) => (
+                  goalTrackListItems.map((goal) => (
                     <option key={goal._id} value={goal._id}>
                       {goal.title}
                     </option>

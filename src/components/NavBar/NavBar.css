@@ -10,6 +10,7 @@
     border: 3px solid #000;
     background: #7E68B9;
     box-sizing: border-box;
+    width: 100vw; 
 }
 
 .nav {
