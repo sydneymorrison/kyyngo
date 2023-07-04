@@ -4,35 +4,3 @@
     align-items: center;
     flex-direction: column;
 }
-
-
-.profileFormLabel{
-    font-family: TheGoodMonolith;
-    font-size: 25px;
-    flex-shrink: 0;
-    align-self: flex-start; 
-    margin-right: 10px;
-}
-
-.profileFormSelect{
-    width: 352px;
-    height: 35px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    border: 3px solid #000;
-    background: #FCFCFC;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin-left: auto;
-}
-
-
-.profileFormInput{
-    width: 352px;
-    height: 35px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    border: 3px solid #000;
-    background: #FCFCFC;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin-left: auto;
-}

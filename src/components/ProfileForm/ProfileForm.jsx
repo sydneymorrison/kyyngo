@@ -164,7 +164,9 @@ export default function ProfileForm() {
     
     
               {/* //Submit Button */}
-              <button type="submit">Submit</button>
+              <div className="profileFormButtonContainer">
+              <button className="profileFormButton" type="submit">Submit</button>
+              </div>
     
         </form>
         </div>
