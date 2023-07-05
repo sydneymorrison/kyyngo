@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    background: url("../../images/backgrounds/light-diamond-background-3.png") no-repeat center/cover, lightgray;
+    background: url("../../images/backgrounds/dark-diamond-background-2.png") no-repeat center/cover, lightgray;
     width: 100vw; 
     height: 100vh;
 }
@@ -11,7 +11,7 @@
 
 .messageContainer{
     width: 600px;
-    height: 500px;
+    height: 400px;
     flex-shrink: 0;
     border-radius: 20px;
     border: 4px solid #000;

@@ -59,7 +59,7 @@ const OpenAI = require('openai-api');
 
 //Route for OpenAI
 const chatbot = new OpenAI({
-  apiKey: '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',
+  apiKey: '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',
 });
 
 const askChatbot = async (question) => {
@@ -80,9 +80,7 @@ const askChatbot = async (question) => {
     }
   };
 
-
-
-// API route for chatbot
+  // API route for chatbot
 app.post('/api/chatbot', async (req, res) => {
   try {
     const { messages } = req.body;
@@ -92,7 +90,7 @@ app.post('/api/chatbot', async (req, res) => {
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer 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',
+        'Authorization': 'Bearer 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',
       },
     });
 
@@ -103,6 +101,8 @@ app.post('/api/chatbot', async (req, res) => {
     res.status(500).send('Something went wrong');
   }
 });
+
+
 
 
 // The following "catch all" route (note the *) is necessary

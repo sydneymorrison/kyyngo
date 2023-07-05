@@ -2,8 +2,8 @@ import React from 'react';
 import './ProfileListCard.css';
 
 // Images
-import starIcon from '/Users/sydneymorrison/code/kyyngo/src/images/star-icon-dropshadow.png';
-import progressSVG100 from '/Users/sydneymorrison/code/kyyngo/src/images/progress-75.svg';
+import starIcon from '../../images/star-icon-dropshadow.png';
+import progressSVG100 from '../../images/progress-75.svg';
 
 
 

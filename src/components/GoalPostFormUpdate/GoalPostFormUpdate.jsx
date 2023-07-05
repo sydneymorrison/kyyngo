@@ -85,7 +85,7 @@ export default function GoalPostFormUpdate( ) {
 
   
   return (
-    <div>
+    <div className="goalPostFormUpdateBox">
     <h1 className="goalPostFormHeading">Update Goal</h1>
     <div className="goalPostUpdateFormContainer">
       <div className="goalPostFormComponent">
