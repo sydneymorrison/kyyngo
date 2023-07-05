@@ -26,8 +26,10 @@ export default function ProfileListCard( { profileListItem } ) {
                 <div className="goalListCard-Row1 goalListCard-Row-1">
                 <div>
                 <div className="profileListCardIconContainer profileListCard-Column-1">
+                <div className="profileCardIconContainer">
                 <div className="profileListCardIcon">
                   {goal.icon}
+                </div>
                 </div>
                 </div>
                 </div>
@@ -35,6 +37,7 @@ export default function ProfileListCard( { profileListItem } ) {
                 {/* Created at date */}
                 <div className="profileListCardContent profileListCard-Column-2 profileListCardFont">
                   <div>{formattedDate}</div>
+                  <div>@sydneymorrison</div>
 
                   {/* Goal Title */}
                   <div>{goal.title}</div>

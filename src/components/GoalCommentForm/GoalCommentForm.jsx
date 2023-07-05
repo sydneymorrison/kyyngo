@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createComment } from '../../utilities/comments-api';
+// import { createComment } from '../../utilities/goals-api';
 import { useParams } from 'react-router-dom';
 // import { useAuth } from '../../hooks/auth';
 import './GoalCommentForm.css';
@@ -55,7 +56,6 @@ async function handleSubmit(evt) {
     {/* Form for comment */}
     <form onSubmit={handleSubmit}>
         <label className="goalCommentFormLabel">
-            Comment:
             <input
                 type="text"
                 name="comment"

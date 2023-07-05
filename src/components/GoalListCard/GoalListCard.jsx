@@ -41,8 +41,10 @@ export default function GoalListCard({ goalListItem, handleUpdateGoal, handleDel
         <div className="goalListCard-Row1 goalListCard-Row-1">
           <div>
                 <div className="goalListCardIconContainer goalListCard-Column-1">
+                  <div className="goalListCardIconContainer">
                   <div className="goalListCardIcon">
                   {goalListItem.icon}
+                  </div>
                   </div>
                 </div>
             </div>
@@ -51,12 +53,13 @@ export default function GoalListCard({ goalListItem, handleUpdateGoal, handleDel
             <div className="goalListCardContent goalListCard-Column-2 goalListCardFont">
               {/* Created at date */}
               {formattedDate}
+              <div>@sydneymorrison</div>
               {/* username from profile model */}
               {/* goal title */}
 
               {/* Wrap the title in a link that navigates to the Goal Detail Page */}
               
-              <Link to={`/goals/${goalListItem._id}`}>
+              <Link className="goalListCardTitleLink" to={`/goals/${goalListItem._id}`}>
               {goalListItem.title}
               </Link>
               {goalListItem.description}

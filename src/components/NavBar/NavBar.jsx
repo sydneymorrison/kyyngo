@@ -17,14 +17,15 @@ export default function NavBar({ user, setUser }) {
     <div className="navContainer">
       <nav className="nav navFont">
         <KyyngoLogo className="navBarLogo" />
-        <span>Welcome, {user.name}</span>
-        <Link to="/">Explore</Link>
-        &nbsp; | &nbsp;
-        <Link to="/milestones/new">Track</Link>
+        <span>Welcome, {user.name}</span> |
+        <Link className="navFont" to="/">Explore</Link>
+        &nbsp;  &nbsp;
+        <Link className="navFont" to="/milestones/new">Track</Link>
         &nbsp;&nbsp;
-        <Link to="/goals/chat">Goals</Link>
+        <Link className="navFont" to="/chatbot">Goals</Link>
+        {/* <Link to="/goals/chat">Goals</Link> */}
         &nbsp;&nbsp;
-        <Link to="/profile">Profile</Link>
+        <Link className="navFont" to="/profile">Profile</Link>
         &nbsp;&nbsp;
         {/* <Link to="/settings">Settings</Link> */}
         &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>

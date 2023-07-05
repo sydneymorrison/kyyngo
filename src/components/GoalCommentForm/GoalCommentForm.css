@@ -13,8 +13,8 @@
 }
 
 .goalCommentFormInput{
-  width: 150px;
-  height: 27px;
+  width: 300px;
+  height: 40px;
   flex-shrink: 0;
   border-radius: 10px;
   border: 2px solid #000;

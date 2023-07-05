@@ -17,7 +17,7 @@ export default function TrackGoalPage() {
       try {
         const goalTrackList = await getTrackGoalList();
         setGoalTrackListItems(goalTrackList);
-        console.log('goalTrackList_milestone', goalTrackList);
+        console.log('goalTrackList_mileston1', goalTrackList);
       } catch (error) {
         console.error('Failed to fetch goals:', error);
       }
@@ -31,7 +31,7 @@ export default function TrackGoalPage() {
     <div className="goalTrackPageContainer">
       <div>
     <h1>Track a Goal</h1>
-    <GoalTrackList goals={goalTrackListItems} />
+    <GoalTrackList milestones={goalTrackListItems} />
     </div>
     </div>
   );

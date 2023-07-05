@@ -39,9 +39,11 @@ handleDeleteGoal(goalDetailItems._id);
           <div>
 
             <div className="goalDetailCardIconContainer goalDetailCard-Column-1">
+            <div className="goalDetailCardIconContainer">
                 <div className="goalDetailCardIcon">
                 {goalDetailItems.icon}
                 </div>
+              </div>
         </div>
       </div>
 
@@ -51,6 +53,7 @@ handleDeleteGoal(goalDetailItems._id);
         {/* Created at date */}
         <div className="goalFormattedDate">
         {formattedDate}
+        <div>@sydneymorrison</div>
         </div>
         {/* username from profile model */}
         {/* goal title */}

@@ -21,6 +21,9 @@ import GoalCommentForm from '../../components/GoalCommentForm/GoalCommentForm';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import ProfileFormPage from '../ProfileFormPage/ProfileFormPage'
 
+//Import
+import ChatComponent from '../../components/ChatComponent/ChatComponent';
+
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -33,7 +36,7 @@ export default function App() {
             <Routes>
               {/* Goals Routes */}
               <Route path="/" element={<GoalExplorePage user={user} setUser={setUser} />} />
-              <Route path="/goals/chat" element={<GoalChatPage user={user} setUser={setUser} />} />
+              {/* <Route path="/goals/chat" element={<GoalChatPage user={user} setUser={setUser} />} /> */}
               <Route path="/goals/settings" element={<NavBarDropdown user={user} setUser={setUser} />} />
               <Route path="/goals/new" element={<GoalPostFormPage user={user} setUser={setUser} />} />
               <Route path="/goals/:id/edit" element={<GoalPostFormUpdate user={user} setUser={setUser} />} />
@@ -51,6 +54,12 @@ export default function App() {
               {/* Comments Routes */}
               <Route path="/goals/:id/comments" element={<GoalCommentForm user={user} setUser={setUser} />} />
               <Route path="/goals/:id/comments" element={<GoalDetailPage user={user} setUser={setUser} />} />
+
+              {/* ChatBot */}
+              {/* <Route path="/chatbot" element={<GoalChatPage user={user} setUser={setUser} />} /> */}
+              <Route path="/chatbot" element={<ChatComponent user={user} setUser={setUser} />} />
+
+
 
 
               {/* <Route path="/orders/new" element={<NewOrderPage />} />

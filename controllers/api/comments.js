@@ -15,6 +15,9 @@ async function createComment(req, res) {
         console.log('req.body create comment:', req.body.formData);
 
         const { id } = req.params;
+        // const { comment } = req.body;
+
+        //MADE THIS UPDATE
         const { comment } = req.body.formData;
         
         const goal = await Goal.findById(id);
@@ -31,7 +34,7 @@ async function createComment(req, res) {
             comment: comment
         });
 
-        // await newComment.save();
+         await newComment.save();
 
 
         //Update the goals comment array
