@@ -52,16 +52,23 @@ Use a Trello board to organize and track the project's progress. The board shoul
 
 - As a <role>, I want <feature> so that <reason>.
 
+## Technologies Used
+ -  MongoDB/Mongoose
+  - Express
+  - React
+  - Node
+  - OpenAI API
+  - CSS
+  - HTML
+
+
 ## Technical Requirements
 
 The application should meet the following technical requirements and deliverables:
 
 - A working full-stack, single-page application hosted on Heroku.
 - Incorporate the technologies of the MERN stack:
-  - MongoDB/Mongoose
-  - Express
-  - React
-  - Node
+
 - Have a well-styled interactive front-end that communicates with the Express backend via AJAX.
 - Implement token-based authentication, including the ability for users to sign up, log in, and log out securely.
 - Implement authorization by restricting Create, Update, and Delete (CUD) data functionality to appropriately authenticated users. Also, ensure that navigation responds to the login status of the user.

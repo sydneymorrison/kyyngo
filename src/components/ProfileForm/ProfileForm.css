@@ -9,6 +9,7 @@
     border-radius: 20px;
     border: 5px solid #120C01;
     background: #F4F4F4;
+    
 } 
 
 .profileFormComponent {
@@ -70,5 +71,9 @@
     background: #9B4FD7;
     margin-top: 5px;
 }
+
+/* h1 {
+    color:#F4F4F4;
+} */
 
 

@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    background: url("../../images/backgrounds/dark-diamond-background-2.png") no-repeat center/cover, lightgray;
+    background: url("../../images/backgrounds/light-diamond-background-14.png") no-repeat center/cover, lightgray;
     width: 100vw; 
     height: 100vh;
 }

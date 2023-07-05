@@ -59,7 +59,7 @@ const OpenAI = require('openai-api');
 
 //Route for OpenAI
 const chatbot = new OpenAI({
-  apiKey: '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',
+  apiKey: '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',
 });
 
 const askChatbot = async (question) => {
@@ -90,7 +90,7 @@ app.post('/api/chatbot', async (req, res) => {
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer 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',
+        'Authorization': 'Bearer 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',
       },
     });
 

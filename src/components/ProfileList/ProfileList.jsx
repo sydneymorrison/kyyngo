@@ -6,8 +6,8 @@ import ProfileFormCard from '../../components/ProfileFormCard/ProfileFormCard'
 
 export default function ProfileList( { profileListItems, selectedProfile, handleProfileFormSelection }) {
   return (
-    <div className="profileListContainer">
-
+    <div className="profileListContainerBox">
+      <h1>Profile</h1>
       <div className="profileListProfileFormCardComponent">
         <ProfileFormCard 
           // profileListItems={profileListItems} 

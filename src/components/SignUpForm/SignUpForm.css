@@ -1,3 +1,47 @@
+
+.signUpFormContainerBox{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.signUpForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+
+.signUpFormContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.signUpFormLabel{
+    color: #000;
+    font-size: 25px;
+    font-family: LT Binary Neue;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 10px; 
+}
+
+
+.signUpFormInput{
+    width: 323px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 3px solid #3D1045;
+    background: #D9D9D9;
+}
+
+
 .singUpFormButton{
     width: 150px;
     height: 40px;
