@@ -56,10 +56,13 @@ Use a Trello board to organize and track the project's progress. The board shoul
  -  MongoDB/Mongoose
   - Express
   - React
-  - Node
+  - Node.js
   - OpenAI API
   - CSS
   - HTML
+  - Figma, Lucid, Notion and Trello for planning/visualization
+  - Heroku for Development
+
 
 
 ## Technical Requirements
