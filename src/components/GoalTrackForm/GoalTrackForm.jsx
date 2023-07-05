@@ -91,8 +91,10 @@ export default function TrackGoalForm({ goals, goalTrackListItems }) {
             />
           </div>
 
+
+  {/* DO NOT DELETE */}
           {/* Input for Goal */}
-          <div className="goalTrackFormRow">
+          {/* <div className="goalTrackFormRow">
             <label className="goalTrackFormLabel">Goal</label>
             <select
               name="goalId"
@@ -111,7 +113,8 @@ export default function TrackGoalForm({ goals, goalTrackListItems }) {
                   </option>
                 ))}
             </select>
-          </div>
+          </div> */}
+    {/* DO NOT DELETE */}
 
           {/* //Input for Milestone Description */}
           <div className="goalTrackFormRow">

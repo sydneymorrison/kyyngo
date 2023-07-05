@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 import NavBarDropdown from '../NavBarDropdown/NavBarDropdown';
-import KyyngoLogo from '../../components/KyyngoLogo/KyyngoLogo'
+import KyyngoLogo from '../../components/KyyngoLogo/KyyngoLogo';
 import './NavBar.css';
 
 //Images

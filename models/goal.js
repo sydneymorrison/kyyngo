@@ -10,7 +10,7 @@ const milestoneSchema = new Schema ({
     goalId:[{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Goal',
-      required: true
+      // required: true
     }],
       currentDate: {
         type: Date
