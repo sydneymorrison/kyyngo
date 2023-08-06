@@ -105,7 +105,7 @@ These future enhancements aim to enrich Kyyngo with engaging features, personali
 
 # Getting Started
 
-To access Kyyngo please visit: https://kyyngo-1b832bc9e67f.herokuapp.com/
+To access Kyyngo please visit: Here
 
 ## Contributors
 
